@@ -1,0 +1,266 @@
+<html>
+<head>
+<style>
+  * {
+  	margin: 0;
+  }
+  body {
+		width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+  }
+  #container {
+  	width: 350px;
+    height: 350px;
+    contain: strict;
+    background-color: green;
+  }
+  .imgContainer {
+  	position: absolute;
+    width: 300px;
+    height: 300px;
+    contain: strict;
+    transform-origin: 0 0;
+  }
+  img {
+    width: 300px;
+    height: 300px;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+</div>
+<script>
+	const mainContainer = document.getElementById("container");
+  
+  const cutLine = (p0, v0, p1, v1) => {
+          let t = ((p0[0]-p1[0])*v1[1]+(p1[1]-p0[1])*v1[0])/(v1[0]*v0[1]-v1[1]*v0[0]);
+          return [p0[0]+v0[0]*t,p0[1]+v0[1]*t];
+        },
+        cutImg = (pStrt0, len0, pStrt1, pEnd1, imgWidth) => {
+          let f = imgWidth / len0;
+          return [Math.sqrt((pEnd1[0]-pStrt1[0])**2+(pEnd1[1]-pStrt1[1])**2)*f+"px",-Math.sqrt((pStrt1[0]-pStrt0[0])**2+(pStrt1[1]-pStrt0[1])**2)*f+"px"];
+        },
+        deterSide = (origin, p1, v1) => v1[0]*(p1[1]-origin[1])+v1[1]*(origin[0]-p1[0])>=0;
+  
+  class Camera {
+    pos = [];
+    angle = 0;
+    nVec = [];
+    xVec = [];
+    lVec = [];
+    rVec = [];
+    
+    constructor(pos = [0,0,0], angle = 0) {
+      this.pos = pos;
+      this.updateAngle(0, angle);
+    }
+    
+    updateAngle(add, angle=0) {
+      if (add == 0)
+	      this.angle = angle;
+      else
+        this.angle += add;
+      this.nVec = [Math.cos(this.angle), Math.sin(this.angle)];
+      this.xVec = [this.nVec[1], -this.nVec[0]];
+      this.lVec = [this.nVec[0]-this.xVec[0], this.nVec[1]-this.xVec[1]];
+      this.lVec = this.lVec.map(v => v/Math.sqrt(this.lVec[0]**2+this.lVec[1]**2));
+      this.rVec = [this.nVec[0]+this.xVec[0], this.nVec[1]+this.xVec[1]];
+      this.rVec = this.rVec.map(v => v/Math.sqrt(this.rVec[0]**2+this.rVec[1]**2));
+    }
+  }
+
+  class Surface {
+    corners = [[0,0,0],[0,0,0],[0,0,0],[0,0,0]];
+    dir = [0,0];
+    len = 0;
+    srcs = ["",""];
+    ele;
+    div;
+    
+    constructor(x1, y1, x2, y2, h, z, srcs) {
+      this.corners = [[x1,y1,z+h/2],[x2,y2,z+h/2],[x2,y2,z-h/2],[x1,y1,z-h/2]];
+      this.dir = [x2-x1,y2-y1];
+      this.len = Math.sqrt((x2-x1)**2+(y2-y1)**2);
+      this.srcs = srcs;
+      this.div = document.createElement("DIV");
+      this.div.className = "imgContainer";
+      this.div.style.display = "none";
+      this.ele = document.createElement("IMG");
+      this.ele.src = srcs[0];
+      this.div.appendChild(this.ele);
+      mainContainer.appendChild(this.div);
+    }
+    
+    project(origin, nVec, xVec, lVec, rVec) {
+      let nComps = [],
+          xComps = [],
+          quadrants = [],
+          points = [this.corners[0].slice(0,2), this.corners[1].slice(0,2)];
+      
+      this.corners.slice(0,2).forEach((v, i) => {
+        nComps.push((v[0]-origin[0])*nVec[0]+(v[1]-origin[1])*nVec[1]);
+        xComps.push((v[0]-origin[0])*xVec[0]+(v[1]-origin[1])*xVec[1]);
+        quadrants.push(2);
+        
+        if (nComps[i] <= 0 && xComps[i] < 0) {
+          quadrants[i] = 3;
+        } else if (nComps[i] > 0) {
+          if (xComps[i] < 0) {
+            if (nComps[i] >= Math.abs(xComps[i]))
+              quadrants[i] = 5;
+            else
+              quadrants[i] = 4;
+          } else {
+            if (nComps[i] >= Math.abs(xComps[i]))
+              quadrants[i] = 0;
+            else
+              quadrants[i] = 1;
+          }
+        }
+      });
+      
+      for (let i = 0; i < 2; ++i) {
+        let j = 1 - i;
+        switch (quadrants[i]) {
+          case 0:
+            if (quadrants[j] == 1 || quadrants[j] == 2)
+              points[j] = cutLine(origin, rVec, points[0], this.dir);
+            else if (quadrants[j] == 3 || quadrants[j] == 4)
+              points[j] = cutLine(origin, lVec, points[0], this.dir);
+            break;
+          case 1:
+            if (quadrants[j] == 5)
+              points[i] = cutLine(origin, rVec, points[0], this.dir);
+            else if (quadrants[j] == 4) {
+              points[j] = cutLine(origin, lVec, points[0], this.dir);
+              points[i] = cutLine(origin, rVec, points[0], this.dir);
+            } else if (quadrants[j] == 3) {
+              if (nComps[j]-xComps[j]*(nComps[i]-nComps[j])/(xComps[i]-xComps[j]) > 0) {
+                points[j] = cutLine(origin, lVec, points[0], this.dir);
+                points[i] = cutLine(origin, rVec, points[0], this.dir);
+              } else
+                return -1;
+            } else if (quadrants[j] == 2 || quadrants[j] == 1)
+              return -1;
+            break;
+          case 2:
+          	if (quadrants[j] == 5)
+              points[i] = cutLine(origin, rVec, points[0], this.dir);
+            else if (quadrants[j] == 4) {
+              if (nComps[j]-xComps[j]*(nComps[i]-nComps[j])/(xComps[i]-xComps[j]) > 0) {
+                points[j] = cutLine(origin, lVec, points[0], this.dir);
+                points[i] = cutLine(origin, rVec, points[0], this.dir);
+            	} else
+                return -1;
+            } else if (quadrants[j] == 3 || quadrants[j] == 2)
+              return -1;
+            break;
+          case 3:
+          	if (quadrants[j] == 5)
+              points[i] = cutLine(origin, lVec, points[0], this.dir);
+            else if (quadrants[j] == 4 || quadrants[j] == 3)
+              return -1;
+            break;
+          case 4:
+          	if (quadrants[j] == 5)
+              points[i] = cutLine(origin, lVec, points[0], this.dir);
+            else if (quadrants[j] == 4)
+            	return -1;
+            break;
+        }
+      }
+      
+      points.forEach((v, i) => {
+        nComps[i] = (v[0]-origin[0])*nVec[0]+(v[1]-origin[1])*nVec[1];
+        xComps[i] = ((v[0]-origin[0])*xVec[0]+(v[1]-origin[1])*xVec[1])/nComps[i];
+      });
+      
+      return [[[xComps[0],this.corners[0][2]/nComps[0]],[xComps[1],this.corners[1][2]/nComps[1]],[xComps[1],this.corners[2][2]/nComps[1]],[xComps[0],this.corners[3][2]/nComps[0]]],cutImg(this.corners[0], this.len, ...points, this.ele.naturalWidth),deterSide(origin,points[0],this.dir)];
+    }
+    
+    draw(cam) {
+      let res = this.project(cam.pos, cam.nVec, cam.xVec, cam.lVec, cam.rVec);
+      if (res == -1) {
+        this.div.style.display = "none";
+        return;
+      }
+      
+      let [scrnCoords, [width, margin], side] = res;
+      
+      if (side) {
+        if (this.srcs[0] == "") {
+          this.div.style.display = "none";
+					return;
+        } else
+	        this.ele.src = this.srcs[0];
+      } else {
+        if (this.srcs[1] == "") {
+          this.div.style.display = "none";
+					return;
+        } else
+	        this.ele.src = this.srcs[1];
+      }
+      //Need check for possibly different sizes on different sides for margin/width stuff
+      
+      this.div.style.display = "block";
+      this.div.style.width = width;
+      this.ele.style.marginLeft = margin;
+      scrnCoords = scrnCoords.map(v => [v[0]*mainContainer.offsetWidth/2+mainContainer.offsetWidth/2,v[1]*mainContainer.offsetHeight/2+mainContainer.offsetHeight/2]);
+      this.div.style.transform = transform([[0,this.div.offsetHeight],[this.div.offsetWidth,this.div.offsetHeight],[this.div.offsetWidth,0],[0,0]],scrnCoords);
+    }
+  }
+  
+  const adj = m => [[m[1][1]*m[2][2]-m[1][2]*m[2][1],m[0][2]*m[2][1]-m[0][1]*m[2][2],m[0][1]*m[1][2]-m[0][2]*m[1][1]],[m[2][0]*m[1][2]-m[1][0]*m[2][2],m[0][0]*m[2][2]-m[0][2]*m[2][0],m[0][2]*m[1][0]-m[0][0]*m[1][2]],[m[1][0]*m[2][1]-m[1][1]*m[2][0],m[0][1]*m[2][0]-m[0][0]*m[2][1],m[0][0]*m[1][1]-m[0][1]*m[1][0]]],
+        dot = (v1, v2) => v1[0]*v2[0]+v1[1]*v2[1]+v1[2]*v2[2],
+  			mTimesV = (m, v) => [dot(m[0],v),dot(m[1],v),dot(m[2],v)],
+        mTimesM = (m1, m2) => [[dot(m1[0],[m2[0][0],m2[1][0],m2[2][0]]),dot(m1[0],[m2[0][1],m2[1][1],m2[2][1]]),dot(m1[0],[m2[0][2],m2[1][2],m2[2][2]])],[dot(m1[1],[m2[0][0],m2[1][0],m2[2][0]]),dot(m1[1],[m2[0][1],m2[1][1],m2[2][1]]),dot(m1[1],[m2[0][2],m2[1][2],m2[2][2]])],[dot(m1[2],[m2[0][0],m2[1][0],m2[2][0]]),dot(m1[2],[m2[0][1],m2[1][1],m2[2][1]]),dot(m1[2],[m2[0][2],m2[1][2],m2[2][2]])]];
+        
+  const transform = (points1, points2) => {
+    let pointM1 = [[points1[0][0],points1[1][0],points1[2][0]],[points1[0][1],points1[1][1],points1[2][1]],[1,1,1]],
+        pointM2 = [[points2[0][0],points2[1][0],points2[2][0]],[points2[0][1],points2[1][1],points2[2][1]],[1,1,1]],
+        A = mTimesM(pointM1, mTimesV(adj(pointM1),[points1[3][0],points1[3][1],1]).map((v,i) => [0,0,0].toSpliced(i,1,v))),
+        B = mTimesM(pointM2, mTimesV(adj(pointM2),[points2[3][0],points2[3][1],1]).map((v,i) => [0,0,0].toSpliced(i,1,v))),
+  			C = mTimesM(B, adj(A));
+    for (let i = 0; i < C.length; ++i)
+      for (let j = 0; j < C[i].length; ++j)
+        C[i][j] /= C[2][2];
+   
+    return "matrix3d("+[C[0][0],C[1][0],0,C[2][0],C[0][1],C[1][1],0,C[2][1],0,0,1,0,C[0][2],C[1][2],0,C[2][2]].join(",")+")";
+  };
+  
+  const keyStates = {"w":0,"s":0,"a":0,"d":0,"q":0,"e":0},
+        turnSpeed = 0.2,
+        moveSpeed = 1,
+  			obj = new Surface(10, -10, 10, 10, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
+        cam = new Camera([0, 0, 0], 0);
+  
+  const move = () => {
+    let netWS = keyStates.w-keyStates.s,
+    		netAD = keyStates.a-keyStates.d,
+        factor = moveSpeed*Math.sqrt(Math.abs(netWS)+Math.abs(netAD)),
+        netQE = keyStates.q-keyStates.e;
+    if (netWS != 0 || netAD != 0) {
+      cam.pos[0]+=(cam.nVec[0]*netWS-cam.xVec[0]*netAD)/factor;
+      cam.pos[1]+=(cam.nVec[1]*netWS-cam.xVec[1]*netAD)/factor;
+    }
+    if (netQE)
+	    cam.updateAngle(netQE*turnSpeed);
+  };
+  
+  document.onkeydown = e => Object.keys(keyStates).includes(e.key) ? keyStates[e.key] = 1 : 0;
+  document.onkeyup = e => Object.keys(keyStates).includes(e.key) ? keyStates[e.key] = 0 : 0;
+  
+  //setTimeout(()=>{obj.draw(cam);}, 500);
+  
+  setInterval(() => {
+    move();
+  	obj.draw(cam);
+  }, 100);
+</script>
+</body>
+</html>
