@@ -1,0 +1,122 @@
+:root {
+  --text-color: #D8DCF6;
+  --box-color: #131520;
+}
+* {
+  margin: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.divFlex > div > img {
+  max-height: 40vh;
+  max-width: 95%;
+  width: auto;
+  height: auto;
+  border-radius: 5%;
+  border: 1vw solid rgb(44, 44, 44);
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+#divSources {
+  margin: 0% 12.5%;
+  text-align: center;
+}
+@media screen and (max-width: 699px) {
+  #divSources > p {
+    font-size: 3vw;
+    color: rgb(29, 29, 29);
+    text-align: center;
+    font-family: georgia, serif;
+    line-height: 3.3vw;
+  }
+  #divSources > h1 {
+    font-size: 3.5vw;
+    color: rgb(29, 29, 29);
+    text-align: center;
+    font-family: georgia, serif;
+    margin-bottom: 1vw;
+  }
+  .divFlex > div > p {
+    font-size: 3vw;
+    color: rgb(29, 29, 29);
+    text-align: center;
+    font-family: georgia, serif;
+    line-height: 3.3vw;
+  }
+  .divFlex > div > h1 {
+    font-size: 3.5vw;
+    color: rgb(29, 29, 29);
+    text-align: center;
+    font-family: georgia, serif;
+    margin-bottom: 1vw;
+  }
+  .divFlex {
+    display: flex;
+    height: 75%;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 11vw;
+  }
+  .divFlex > div {
+    width: 70%;
+    margin: 0px 15%;
+  }
+  .txtCaption {
+    color: rgb(112, 112, 112) !important;
+    font-size: 3vw !important;
+    text-align: center;
+    font-family: georgia, serif !important;
+    margin-top: 1%;
+    margin-bottom: 5%;
+    word-break: break-word;
+  }
+}
+@media screen and (min-width: 700px) {
+  #divSources > p {
+    font-size: 1.5vw;
+    color: rgb(29, 29, 29);
+    text-align: center;
+    font-family: georgia, serif;
+    line-height: 3.3vw;
+  }
+  #divSources > h1 {
+    font-size: 2vw;
+    color: rgb(29, 29, 29);
+    text-align: center;
+    font-family: georgia, serif;
+    margin-bottom: 1vw;
+  }
+  .divFlex > div > p {
+    font-size: 1.5vw;
+    color: rgb(29, 29, 29);
+    text-align: center;
+    font-family: georgia, serif;
+    line-height: 1.8vw;
+  }
+  .divFlex > div > h1 {
+    font-size: 2vw;
+    color: rgb(29, 29, 29);
+    text-align: center;
+    font-family: georgia, serif;
+    margin-bottom: 5px;
+  }
+  .txtCaption {
+    color: rgb(112, 112, 112) !important;
+    font-size: 1.5vw !important;
+    text-align: center;
+    font-family: georgia, serif !important;
+    margin-top: 10px;
+    word-break: break-word;
+  }
+  .divFlex {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  .divFlex > div {
+    width: 46%;
+    margin: 0px 2%;
+  }
+}

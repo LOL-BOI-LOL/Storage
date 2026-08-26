@@ -1,0 +1,51 @@
+* {
+  margin: 0px;
+}
+body {
+  display: flex;
+}
+#designarea {
+  width: 74vw;
+  height: 99vh;
+  border: solid black;
+  border-width: 0.5vh 0.5vw;
+}
+#editbar {
+  display: flex;
+  width: 25vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: gray;
+}
+#editbar > div {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 2vh 0vw;
+}
+input {
+  display: inline-block;
+  width: 40%;
+}
+.label {
+  display: inline-block;
+  margin-right: 5%;
+}
+#submit {
+  margin-top: 3vh;
+  padding: 0.5vw;
+  border: 0.1vw solid black;
+  background-color: gainsboro;
+  user-select: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  margin-right: 0.5vh;
+}
+#label {
+  margin-bottom: 3vh;
+}

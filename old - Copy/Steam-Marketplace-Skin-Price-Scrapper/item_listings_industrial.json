@@ -1,0 +1,735 @@
+{
+    "P2000 | Coach Class": {
+        "Well-Worn": 10.69,
+        "Battle-Scarred": 11.07,
+        "Minimal Wear": 13.27,
+        "Field-Tested": 11.0
+    },
+    "PP-Bizon | Carbon Fiber": {
+        "Factory New": 16.29,
+        "Minimal Wear": 15.72
+    },
+    "MAC-10 | Commuter": {
+        "Minimal Wear": 13.7,
+        "Well-Worn": 10.93,
+        "Battle-Scarred": 12.5,
+        "Field-Tested": 11.85
+    },
+    "P250 | Contamination": {
+        "Well-Worn": 3.42,
+        "Factory New": 3.94,
+        "Minimal Wear": 2.99
+    },
+    "P2000 | Grassland Leaves": {
+        "Battle-Scarred": 12.28,
+        "Field-Tested": 11.0,
+        "Minimal Wear": 21.56,
+        "Factory New": 184.93
+    },
+    "M249 | Blizzard Marbleized": {
+        "Battle-Scarred": 7.37,
+        "Well-Worn": 11.5,
+        "Field-Tested": 8.46,
+        "Minimal Wear": 20.6,
+        "Factory New": 254.46
+    },
+    "Negev | Palm": {
+        "Minimal Wear": 9.83,
+        "Field-Tested": 4.98,
+        "Well-Worn": 4.92,
+        "Factory New": 91.6,
+        "Battle-Scarred": 8.99
+    },
+    "XM1014 | Fallout Warning": {
+        "Field-Tested": 7.61,
+        "Battle-Scarred": 7.99,
+        "Minimal Wear": 30.31,
+        "Well-Worn": 9.83
+    },
+    "MP7 | Orange Peel": {
+        "Factory New": 21.4,
+        "Field-Tested": 13.92,
+        "Battle-Scarred": 13.12,
+        "Minimal Wear": 15.61,
+        "Well-Worn": 16.75
+    },
+    "P250 | Gunsmoke": {
+        "Battle-Scarred": 2.22,
+        "Minimal Wear": 4.6,
+        "Field-Tested": 4.0,
+        "Factory New": 44.8
+    },
+    "P250 | Facets": {
+        "Battle-Scarred": 6.05,
+        "Factory New": 47.89,
+        "Minimal Wear": 8.75
+    },
+    "G3SG1 | Arctic Camo": {
+        "Battle-Scarred": 9.43,
+        "Well-Worn": 7.14,
+        "Minimal Wear": 15.01,
+        "Field-Tested": 9.55
+    },
+    "SG 553 | Traveler": {
+        "Field-Tested": 10.7,
+        "Well-Worn": 10.6,
+        "Battle-Scarred": 11.77,
+        "Minimal Wear": 12.44,
+        "Factory New": 19.16
+    },
+    "UMP-45 | Fallout Warning": {
+        "Battle-Scarred": 9.0,
+        "Field-Tested": 8.87,
+        "Well-Worn": 9.96,
+        "Minimal Wear": 35.3,
+        "Factory New": 224.75
+    },
+    "P90 | Leather": {
+        "Field-Tested": 10.49,
+        "Well-Worn": 10.09,
+        "Minimal Wear": 14.76,
+        "Battle-Scarred": 9.62
+    },
+    "Negev | CaliCamo": {
+        "Well-Worn": 19.61,
+        "Field-Tested": 15.95,
+        "Factory New": 19.98,
+        "Minimal Wear": 16.1,
+        "Battle-Scarred": 15.37
+    },
+    "SSG 08 | Mayan Dreams": {
+        "Minimal Wear": 6.36,
+        "Well-Worn": 5.95,
+        "Field-Tested": 5.84,
+        "Battle-Scarred": 6.17,
+        "Factory New": 46.57
+    },
+    "Glock-18 | Groundwater": {
+        "Minimal Wear": 15.93,
+        "Battle-Scarred": 12.92,
+        "Well-Worn": 13.08,
+        "Factory New": 79.35
+    },
+    "AUG | Radiation Hazard": {
+        "Battle-Scarred": 2.24,
+        "Well-Worn": 2.6,
+        "Factory New": 2.93,
+        "Field-Tested": 2.41
+    },
+    "Galil AR | Winter Forest": {
+        "Battle-Scarred": 10.37,
+        "Minimal Wear": 24.74,
+        "Field-Tested": 9.43,
+        "Factory New": 259.99,
+        "Well-Worn": 12.91
+    },
+    "P250 | Crimson Kimono": {
+        "Well-Worn": 25.69,
+        "Minimal Wear": 26.76,
+        "Field-Tested": 25.0,
+        "Battle-Scarred": 27.25
+    },
+    "SSG 08 | Tropical Storm": {
+        "Well-Worn": 14.11,
+        "Field-Tested": 14.45,
+        "Minimal Wear": 16.81,
+        "Battle-Scarred": 16.05,
+        "Factory New": 70.72
+    },
+    "M4A4 | Tornado": {
+        "Well-Worn": 5.61,
+        "Battle-Scarred": 5.49,
+        "Minimal Wear": 20.38,
+        "Factory New": 275.1
+    },
+    "Sawed-Off | Rust Coat": {
+        "Well-Worn": 24.31,
+        "Minimal Wear": 23.05,
+        "Factory New": 24.15,
+        "Field-Tested": 18.99,
+        "Battle-Scarred": 18.3
+    },
+    "M4A4 | Jungle Tiger": {
+        "Battle-Scarred": 5.6,
+        "Minimal Wear": 12.3,
+        "Well-Worn": 6.23,
+        "Factory New": 104.99
+    },
+    "AK-47 | Jungle Spray": {
+        "Battle-Scarred": 5.94,
+        "Well-Worn": 5.36,
+        "Minimal Wear": 14.61,
+        "Factory New": 149.19,
+        "Field-Tested": 5.49
+    },
+    "SCAR-20 | Palm": {
+        "Field-Tested": 19.52,
+        "Minimal Wear": 22.74,
+        "Well-Worn": 21.76
+    },
+    "P90 | Fallout Warning": {
+        "Field-Tested": 9.46,
+        "Factory New": 136.8,
+        "Well-Worn": 13.87,
+        "Minimal Wear": 30.42
+    },
+    "USP-S | Para Green": {
+        "Well-Worn": 13.06,
+        "Battle-Scarred": 12.35,
+        "Minimal Wear": 14.85,
+        "Factory New": 24.49
+    },
+    "M249 | Shipping Forecast": {
+        "Battle-Scarred": 31.0,
+        "Minimal Wear": 23.4
+    },
+    "M4A4 | Desert Storm": {
+        "Battle-Scarred": 16.88,
+        "Minimal Wear": 23.37,
+        "Well-Worn": 18.43,
+        "Factory New": 49.03
+    },
+    "SG 553 | Fallout Warning": {
+        "Well-Worn": 4.1,
+        "Factory New": 3.71,
+        "Minimal Wear": 2.69
+    },
+    "AWP | Sun in Leo": {
+        "Battle-Scarred": 22.5,
+        "Well-Worn": 21.1,
+        "Minimal Wear": 27.07,
+        "Field-Tested": 21.85,
+        "Factory New": 47.45
+    },
+    "Sawed-Off | Mosaico": {
+        "Field-Tested": 4.9,
+        "Minimal Wear": 7.07,
+        "Factory New": 20.73,
+        "Battle-Scarred": 7.91
+    },
+    "Glock-18 | Sand Dune": {
+        "Field-Tested": 5.4,
+        "Well-Worn": 6.13,
+        "Minimal Wear": 25.83,
+        "Factory New": 232.47
+    },
+    "P2000 | Grassland": {
+        "Battle-Scarred": 3.19,
+        "Minimal Wear": 3.79,
+        "Factory New": 25.85,
+        "Field-Tested": 3.12
+    },
+    "Tec-9 | Hades": {
+        "Well-Worn": 21.4,
+        "Factory New": 29.96,
+        "Battle-Scarred": 21.59
+    },
+    "USP-S | Royal Blue": {
+        "Battle-Scarred": 20.12,
+        "Well-Worn": 19.27,
+        "Field-Tested": 20.05,
+        "Minimal Wear": 21.1,
+        "Factory New": 73.54
+    },
+    "Glock-18 | Night": {
+        "Battle-Scarred": 4.04,
+        "Minimal Wear": 3.86,
+        "Field-Tested": 3.23
+    },
+    "MP7 | Gunsmoke": {
+        "Minimal Wear": 3.54,
+        "Well-Worn": 2.56,
+        "Factory New": 14.22
+    },
+    "Negev | Nuclear Waste": {
+        "Well-Worn": 2.55,
+        "Field-Tested": 2.38,
+        "Minimal Wear": 2.69
+    },
+    "Desert Eagle | Night": {
+        "Well-Worn": 11.98,
+        "Field-Tested": 13.47,
+        "Factory New": 82.51
+    },
+    "PP-Bizon | Chemical Green": {
+        "Well-Worn": 2.43,
+        "Factory New": 5.45,
+        "Battle-Scarred": 2.19
+    },
+    "Galil AR | Urban Rubble": {
+        "Field-Tested": 12.04,
+        "Well-Worn": 17.91,
+        "Factory New": 24.61
+    },
+    "AK-47 | Predator": {
+        "Battle-Scarred": 18.68,
+        "Minimal Wear": 25.18,
+        "Field-Tested": 23.73
+    },
+    "Nova | Green Apple": {
+        "Field-Tested": 20.25
+    },
+    "MAG-7 | Carbon Fiber": {
+        "Minimal Wear": 6.74,
+        "Factory New": 6.73
+    },
+    "MAG-7 | Chainmail": {
+        "Minimal Wear": 33.97,
+        "Field-Tested": 29.99
+    },
+    "Five-SeveN | Candy Apple": {
+        "Field-Tested": 107.01,
+        "Factory New": 97.75
+    },
+    "Nova | Rust Coat": {
+        "Field-Tested": 3.72,
+        "Battle-Scarred": 3.72,
+        "Minimal Wear": 3.86
+    },
+    "M249 | Midnight Palm": {
+        "Minimal Wear": 6.05,
+        "Field-Tested": 6.05,
+        "Well-Worn": 6.18,
+        "Factory New": 6.25,
+        "Battle-Scarred": 6.07
+    },
+    "M4A4 | Dark Blossom": {
+        "Minimal Wear": 32.21,
+        "Well-Worn": 31.51,
+        "Factory New": 36.03,
+        "Field-Tested": 31.63
+    },
+    "P90 | Sunset Lily": {
+        "Battle-Scarred": 36.94,
+        "Minimal Wear": 32.71
+    },
+    "Five-SeveN | Withered Vine": {
+        "Factory New": 6.07,
+        "Field-Tested": 6.0,
+        "Minimal Wear": 6.06,
+        "Battle-Scarred": 6.58,
+        "Well-Worn": 6.12
+    },
+    "M4A1-S | Moss Quartz": {
+        "Minimal Wear": 56.12,
+        "Well-Worn": 34.12,
+        "Factory New": 85.0,
+        "Field-Tested": 38.03,
+        "Battle-Scarred": 35.94
+    },
+    "FAMAS | CaliCamo": {
+        "Battle-Scarred": 4.62,
+        "Minimal Wear": 4.6,
+        "Field-Tested": 4.55,
+        "Factory New": 4.73
+    },
+    "Five-SeveN | Hot Shot": {
+        "Well-Worn": 2.39,
+        "Battle-Scarred": 2.15,
+        "Factory New": 19.23
+    },
+    "CZ75-Auto | Midnight Palm": {
+        "Minimal Wear": 4.62,
+        "Factory New": 4.85,
+        "Well-Worn": 4.72,
+        "Battle-Scarred": 4.6,
+        "Field-Tested": 4.46
+    },
+    "Glock-18 | Red Tire": {
+        "Battle-Scarred": 5.3,
+        "Field-Tested": 4.9
+    },
+    "UMP-45 | Houndstooth": {
+        "Factory New": 4.41,
+        "Minimal Wear": 3.72,
+        "Field-Tested": 3.75,
+        "Battle-Scarred": 3.8,
+        "Well-Worn": 3.42
+    },
+    "P2000 | Panther Camo": {
+        "Minimal Wear": 4.72,
+        "Field-Tested": 5.41,
+        "Well-Worn": 5.0,
+        "Battle-Scarred": 4.6
+    },
+    "SG 553 | Candy Apple": {
+        "Minimal Wear": 8.13,
+        "Field-Tested": 7.85,
+        "Battle-Scarred": 7.97,
+        "Well-Worn": 9.44
+    },
+    "PP-Bizon | Breaker Box": {
+        "Field-Tested": 4.38,
+        "Minimal Wear": 5.49,
+        "Well-Worn": 6.53,
+        "Factory New": 5.58
+    },
+    "P250 | Dark Filigree": {
+        "Field-Tested": 7.85,
+        "Battle-Scarred": 7.9,
+        "Factory New": 9.62,
+        "Minimal Wear": 9.2,
+        "Well-Worn": 7.9
+    },
+    "AK-47 | Baroque Purple": {
+        "Well-Worn": 7.73,
+        "Minimal Wear": 8.19,
+        "Battle-Scarred": 7.74
+    },
+    "Dual Berettas | Pyre": {
+        "Field-Tested": 30.13,
+        "Battle-Scarred": 33.04,
+        "Well-Worn": 34.23,
+        "Factory New": 49.22
+    },
+    "SG 553 | Gator Mesh": {
+        "Field-Tested": 14.63,
+        "Battle-Scarred": 16.07,
+        "Well-Worn": 21.4,
+        "Minimal Wear": 15.44
+    },
+    "P2000 | Pathfinder": {
+        "Field-Tested": 20.56,
+        "Factory New": 25.44
+    },
+    "Desert Eagle | Midnight Storm": {
+        "Factory New": 31.7,
+        "Minimal Wear": 27.33,
+        "Well-Worn": 28.3,
+        "Battle-Scarred": 25.0
+    },
+    "USP-S | Pathfinder": {
+        "Minimal Wear": 34.06,
+        "Factory New": 38.59
+    },
+    "MAC-10 | Echoing Sands": {
+        "Factory New": 0.69,
+        "Field-Tested": 0.23,
+        "Battle-Scarred": 0.17,
+        "Minimal Wear": 0.37
+    },
+    "Desert Eagle | Urban DDPAT": {
+        "Minimal Wear": 3.82,
+        "Field-Tested": 3.37,
+        "Well-Worn": 2.81,
+        "Factory New": 18.68
+    },
+    "Desert Eagle | The Bronze": {
+        "Minimal Wear": 6.75,
+        "Field-Tested": 6.72,
+        "Factory New": 6.91
+    },
+    "AUG | Spalted Wood": {
+        "Factory New": 6.14,
+        "Field-Tested": 6.0,
+        "Well-Worn": 6.1
+    },
+    "R8 Revolver | Phoenix Marker": {
+        "Factory New": 4.66,
+        "Field-Tested": 3.72
+    },
+    "MP7 | Tall Grass": {
+        "Field-Tested": 4.19,
+        "Battle-Scarred": 7.3
+    },
+    "MP9 | Old Roots": {
+        "Field-Tested": 6.17,
+        "Battle-Scarred": 6.0
+    },
+    "UMP-45 | Mechanism": {
+        "Field-Tested": 4.46,
+        "Well-Worn": 4.78,
+        "Battle-Scarred": 6.13,
+        "Minimal Wear": 4.95,
+        "Factory New": 4.8
+    },
+    "MP5-SD | Nitro": {
+        "Factory New": 10.23,
+        "Well-Worn": 6.39,
+        "Field-Tested": 6.56,
+        "Battle-Scarred": 6.46
+    },
+    "G3SG1 | Ancient Ritual": {
+        "Battle-Scarred": 4.49,
+        "Field-Tested": 4.1,
+        "Minimal Wear": 4.74
+    },
+    "XM1014 | Banana Leaf": {
+        "Field-Tested": 31.63,
+        "Factory New": 37.45,
+        "Well-Worn": 40.25
+    },
+    "MAG-7 | Silver": {
+        "Factory New": 24.51,
+        "Minimal Wear": 26.94
+    },
+    "MP9 | Orange Peel": {
+        "Factory New": 0.34,
+        "Field-Tested": 0.07,
+        "Minimal Wear": 0.09,
+        "Well-Worn": 0.07
+    },
+    "MP7 | Vault Heist": {
+        "Field-Tested": 3.69,
+        "Factory New": 4.27,
+        "Minimal Wear": 3.79,
+        "Battle-Scarred": 3.64
+    },
+    "FAMAS | Cyanospatter": {
+        "Factory New": 0.64,
+        "Field-Tested": 0.05,
+        "Minimal Wear": 0.07,
+        "Well-Worn": 0.06,
+        "Battle-Scarred": 0.05
+    },
+    "Five-SeveN | Orange Peel": {
+        "Factory New": 0.26,
+        "Battle-Scarred": 0.06,
+        "Field-Tested": 0.09,
+        "Minimal Wear": 0.12,
+        "Well-Worn": 0.08
+    },
+    "UMP-45 | Gunsmoke": {
+        "Factory New": 0.19,
+        "Field-Tested": 0.06,
+        "Minimal Wear": 0.08,
+        "Well-Worn": 0.06,
+        "Battle-Scarred": 0.06
+    },
+    "SSG 08 | Azure Glyph": {
+        "Factory New": 0.75,
+        "Battle-Scarred": 0.17,
+        "Field-Tested": 0.23,
+        "Well-Worn": 0.18,
+        "Minimal Wear": 0.34
+    },
+    "USP-S | Forest Leaves": {
+        "Factory New": 0.95,
+        "Battle-Scarred": 0.07,
+        "Field-Tested": 0.07,
+        "Minimal Wear": 0.1,
+        "Well-Worn": 0.07
+    },
+    "Dual Berettas | Drift Wood": {
+        "Factory New": 4.8,
+        "Minimal Wear": 4.63,
+        "Field-Tested": 4.49,
+        "Well-Worn": 5.3,
+        "Battle-Scarred": 4.54
+    },
+    "Tec-9 | Rust Leaf": {
+        "Factory New": 35.6,
+        "Battle-Scarred": 31.18
+    },
+    "Dual Berettas | Switch Board": {
+        "Battle-Scarred": 6.52,
+        "Field-Tested": 6.55,
+        "Well-Worn": 6.86
+    },
+    "SSG 08 | Carbon Fiber": {
+        "Minimal Wear": 4.69
+    },
+    "Tec-9 | Orange Murano": {
+        "Factory New": 9.35
+    },
+    "AWP | Safari Mesh": {
+        "Field-Tested": 0.06,
+        "Battle-Scarred": 0.06,
+        "Well-Worn": 0.06,
+        "Minimal Wear": 0.08,
+        "Factory New": 1.08
+    },
+    "XM1014 | Blue Steel": {
+        "Minimal Wear": 0.07,
+        "Battle-Scarred": 0.06,
+        "Factory New": 0.17
+    },
+    "AK-47 | Safari Mesh": {
+        "Well-Worn": 0.1,
+        "Battle-Scarred": 0.08,
+        "Field-Tested": 0.09,
+        "Factory New": 2.21
+    },
+    "M4A4 | Mainframe": {
+        "Factory New": 0.1,
+        "Minimal Wear": 0.07,
+        "Field-Tested": 0.06,
+        "Well-Worn": 0.06
+    },
+    "P90 | Ash Wood": {
+        "Minimal Wear": 0.12,
+        "Field-Tested": 0.11,
+        "Well-Worn": 0.09
+    },
+    "M4A1-S | Boreal Forest": {
+        "Field-Tested": 0.06,
+        "Battle-Scarred": 0.06,
+        "Well-Worn": 0.06,
+        "Minimal Wear": 0.1,
+        "Factory New": 1.69
+    },
+    "MAG-7 | Metallic DDPAT": {
+        "Factory New": 0.16
+    },
+    "MAC-10 | Palm": {
+        "Field-Tested": 0.09,
+        "Minimal Wear": 0.12,
+        "Well-Worn": 0.08,
+        "Factory New": 0.19,
+        "Battle-Scarred": 0.06
+    },
+    "MAC-10 | Calf Skin": {
+        "Battle-Scarred": 0.07,
+        "Well-Worn": 0.06,
+        "Field-Tested": 0.07,
+        "Minimal Wear": 0.09
+    },
+    "P2000 | Granite Marbleized": {
+        "Field-Tested": 0.06,
+        "Well-Worn": 0.06,
+        "Minimal Wear": 0.07,
+        "Battle-Scarred": 0.06,
+        "Factory New": 0.21
+    },
+    "Negev | Bulkhead": {
+        "Battle-Scarred": 0.06,
+        "Minimal Wear": 0.07,
+        "Factory New": 0.11,
+        "Well-Worn": 0.06
+    },
+    "PP-Bizon | Candy Apple": {
+        "Factory New": 0.11,
+        "Minimal Wear": 0.09
+    },
+    "R8 Revolver | Nitro": {
+        "Minimal Wear": 0.09,
+        "Field-Tested": 0.07,
+        "Well-Worn": 0.06,
+        "Battle-Scarred": 0.06,
+        "Factory New": 0.23
+    },
+    "Dual Berettas | Stained": {
+        "Minimal Wear": 0.08,
+        "Factory New": 0.13,
+        "Field-Tested": 0.06,
+        "Battle-Scarred": 0.06
+    },
+    "XM1014 | CaliCamo": {
+        "Minimal Wear": 0.08,
+        "Field-Tested": 0.06
+    },
+    "Galil AR | VariCamo": {
+        "Battle-Scarred": 0.07,
+        "Field-Tested": 0.07,
+        "Minimal Wear": 0.08
+    },
+    "Desert Eagle | Mudder": {
+        "Minimal Wear": 0.08,
+        "Well-Worn": 0.06,
+        "Field-Tested": 0.06,
+        "Factory New": 0.5
+    },
+    "AUG | Condemned": {
+        "Battle-Scarred": 0.07,
+        "Factory New": 0.21,
+        "Minimal Wear": 0.08
+    },
+    "M4A4 | Urban DDPAT": {
+        "Minimal Wear": 0.23,
+        "Field-Tested": 0.1,
+        "Factory New": 3.1
+    },
+    "Nova | Candy Apple": {
+        "Minimal Wear": 0.08,
+        "Field-Tested": 0.07,
+        "Factory New": 0.1
+    },
+    "PP-Bizon | Night Ops": {
+        "Field-Tested": 0.06,
+        "Factory New": 0.09,
+        "Minimal Wear": 0.07,
+        "Battle-Scarred": 0.06,
+        "Well-Worn": 0.06
+    },
+    "USP-S | Desert Tactical": {
+        "Battle-Scarred": 0.19,
+        "Field-Tested": 0.23,
+        "Well-Worn": 0.19,
+        "Minimal Wear": 0.34,
+        "Factory New": 0.81
+    },
+    "Galil AR | Cold Fusion": {
+        "Factory New": 0.29,
+        "Field-Tested": 0.06,
+        "Minimal Wear": 0.08,
+        "Well-Worn": 0.07
+    },
+    "P250 | Metallic DDPAT": {
+        "Factory New": 0.16
+    },
+    "Glock-18 | Death Rattle": {
+        "Field-Tested": 0.09,
+        "Minimal Wear": 0.11,
+        "Battle-Scarred": 0.07
+    },
+    "G3SG1 | Green Apple": {
+        "Factory New": 0.14,
+        "Minimal Wear": 0.11,
+        "Field-Tested": 0.09
+    },
+    "Glock-18 | High Beam": {
+        "Factory New": 0.11,
+        "Minimal Wear": 0.12
+    },
+    "MP7 | Motherboard": {
+        "Minimal Wear": 0.07,
+        "Field-Tested": 0.05,
+        "Factory New": 0.09,
+        "Battle-Scarred": 0.06,
+        "Well-Worn": 0.06
+    },
+    "Sawed-Off | Snake Camo": {
+        "Field-Tested": 0.09,
+        "Battle-Scarred": 0.06,
+        "Well-Worn": 0.08
+    },
+    "G3SG1 | VariCamo": {
+        "Field-Tested": 0.07,
+        "Well-Worn": 0.07,
+        "Battle-Scarred": 0.07
+    },
+    "MAC-10 | Silver": {
+        "Factory New": 0.15
+    },
+    "Nova | Caged Steel": {
+        "Minimal Wear": 0.12,
+        "Factory New": 0.14,
+        "Field-Tested": 0.1
+    },
+    "UMP-45 | Carbon Fiber": {
+        "Factory New": 0.14
+    },
+    "M249 | Gator Mesh": {
+        "Field-Tested": 0.07,
+        "Battle-Scarred": 0.07,
+        "Minimal Wear": 0.08,
+        "Well-Worn": 0.07
+    },
+    "SCAR-20 | Carbon Fiber": {
+        "Factory New": 0.16
+    },
+    "MAC-10 | Candy Apple": {
+        "Factory New": 0.16
+    },
+    "Tec-9 | VariCamo": {
+        "Field-Tested": 0.09,
+        "Battle-Scarred": 0.06
+    },
+    "M4A1-S | Mud-Spec": {
+        "Factory New": 1.03,
+        "Field-Tested": 0.26,
+        "Minimal Wear": 0.37,
+        "Battle-Scarred": 0.62,
+        "Well-Worn": 0.38
+    }
+}

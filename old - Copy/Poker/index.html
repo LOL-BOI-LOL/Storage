@@ -1,0 +1,174 @@
+<html>
+  <head>
+    <title>
+      No Title
+    </title>
+    <style>
+      * {
+        margin: 0px;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+      }
+      #join-button {
+        width: 50%;
+        height: 100px;
+        border: 0px solid black;
+        background-color: black;
+        color: white;
+        font-family: monospace;
+        font-size: 3em;
+      }
+      #input-wrapper {
+        display: none;
+        position: fixed;
+        bottom: 0px;
+        justify-content: right;
+      }
+      #raise-input {
+        padding-left: 5px;
+      }
+      #dealt {
+        width: 520px;
+        top: 50px;
+        justify-content: left;
+      }
+      #player0-hand {
+        bottom: 0px;
+      }
+      #player1-hand {
+        left: 160px;
+        bottom: 80px;
+        rotate: 45deg;
+      }
+      #player2-hand {
+        right: 160px;
+        bottom: 80px;
+        rotate: -45deg;
+      }
+      #player3-hand {
+        left: 50px;
+        bottom: 340px;
+        rotate: 90deg;
+      }
+      #player4-hand {
+        right: 50px;
+        bottom: 340px;
+        rotate: -90deg;
+      }
+      .center-wrapper {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+      .horizontal-wrapper {
+        display: flex;
+        width: 100vw;
+        justify-content: center;
+      }
+      .corner-input {
+        width: 120px;
+        height: 40px;
+        border: 1px solid black;
+        font-family: monospace;
+        font-size: 15px;
+      }
+      .corner-input:hover {
+        background-color: rgb(200, 200, 200);
+      }
+      .card-wrapper {
+        display: flex;
+        position: fixed;
+        width: 202px;
+        height: 200px;
+        align-items: center;
+        justify-content: center;
+        column-gap: 10px;
+      }
+      .card {
+        display: flex;
+        width: 90px;
+        height: 150px;
+        border: 3px solid black;
+        background-color: white;
+        align-items: top;
+        justify-content: left;
+        font-family: monospace;
+        font-size: 2em;
+      }
+      .folded {
+        margin-bottom: 20px;
+        background-color: rgb(200, 200, 200);
+      }
+      .symbol {
+        padding-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class = "center-wrapper">
+      <button id = "join-button">Join Game</button>
+    </div>
+    <div id = "input-wrapper" class = "horizontal-wrapper">
+      <button id = "check-button" class = "corner-input">Check</button>
+      <button id = "fold-button" class = "corner-input">Fold</button>
+      <input type = "number" id = "raise-input" class = "corner-input" min = "1" step = "1" value = "1"/>
+      <button id = "raise-button" class = "corner-input">Raise</button>
+    </div>
+    <div class = "horizontal-wrapper">
+      <div id = "dealt" class = "card-wrapper">
+      </div>
+    </div>
+    <div class = "horizontal-wrapper">
+      <div id = "player0-hand" class = "card-wrapper"></div>
+    </div>
+    <div id = "player1-hand" class = "card-wrapper"></div>
+    <div id = "player2-hand" class = "card-wrapper"></div>
+    <div id = "player3-hand" class = "card-wrapper"></div>
+    <div id = "player4-hand" class = "card-wrapper"></div>
+    <script src = "/socket.io/socket.io.js"></script>
+    <script>
+      const socket        = io(),
+            joinButton    = document.getElementById("join-button"),
+            checkButton   = document.getElementById("check-button"),
+            foldButton    = document.getElementById("fold-button"),
+            raiseButton   = document.getElementById("raise-button"),
+            raiseAmount   = document.getElementById("raise-input"),
+            inputWrapper  = document.getElementById("input-wrapper"),
+            players       = Array.from(Array(5)).map((_, i) => document.getElementById("player" + i + "-hand"));
+
+      joinButton.onclick = () => socket.emit("join request");
+      checkButton.onclick = () => socket.emit("check");
+      foldButton.onclick = () => socket.emit("fold");
+      raiseButton.onclick = () => {
+        if (raiseAmount.checkValidity())
+          socket.emit("raise", raiseAmount.value);
+      };
+      
+      socket.on("join", () => {
+        document.body.style.backgroundColor = "rgb(153, 0, 0)";
+        joinButton.style.display = "none";
+        inputWrapper.style.display = "flex";
+      });
+      
+      socket.on("draw card", (symbol, playerNumber) => {
+        let p    = document.createElement("p"),
+            span = document.createElement("span");
+        p.className = "card";
+        span.className = "symbol";
+        span.innerText = symbol;
+        p.appendChild(span);
+        players[playerNumber].appendChild(p);
+      });
+
+      socket.on("fold", (symbols, playerNumber) => {
+        players[playerNumber].childNodes[0].childNodes[0].innerText = symbols[0];
+        players[playerNumber].childNodes[1].childNodes[0].innerText = symbols[1];
+      });
+    </script>
+  </body>
+</html>

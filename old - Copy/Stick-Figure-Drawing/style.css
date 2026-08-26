@@ -1,0 +1,21 @@
+* {
+  margin: 0px;
+}
+body {
+  overflow: hidden;
+}
+img {
+  overflow: auto;
+  z-index: 2;
+}
+p {
+  width: 100vw;
+  height: 5vh;
+  background-color: green;
+  z-index:1;
+  position: absolute;
+  bottom: 0px;
+}
+div {
+  overflow: auto;
+}

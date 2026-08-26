@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Chat Room</title>
+    <style>
+      body {
+        margin:0px;
+      }
+      #top {
+        background-color:rgb(19,21,32);
+        color:rgb(216,220,246);
+      }
+      .top {
+        display:inline-block;
+        font-size:20px;
+        margin:0vw;
+      }
+      #title {
+        font-size:20px;
+        margin:25px 50px 30px 30px;
+      }
+      #login {
+        margin-right:30px;
+      }
+      #chatrooms {
+        font-size:40px;
+      }
+      #messagespace {
+        overflow: auto;
+        height:400px;
+        width:75%;
+        margin:20px 12.5% 0px 12.5%;
+        border: 3px solid black;
+        border-radius: 6px;
+      }
+      .message {
+        width:500px;
+        overflow:auto;
+        display:block;
+        border:2px solid black;
+        margin:5px;
+      }
+      #roomselec {
+        display:inline-block;
+      }
+      #c {
+        display:inline;
+      }
+      #rooms {
+        position:relative;
+      }
+      #rooms2 {
+        position:absolute;
+        margin-top:1px;
+        margin-left:-13px;
+      }
+      .r {
+        min-width: 20px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+        display:none;
+        background-color:rgb(19,21,32);
+        margin:0px;
+      }
+      #roomselec:hover .r {
+        display:block;
+      }
+      a {
+        color:rgb(216,220,246);
+        text-decoration:none;
+      }
+      input {
+        width: 50vw;
+        margin: 2vh 25vw;
+      }
+      button {
+        width: 10vw;
+        margin: 0vh 45vw;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io(),
+            form   = document.getElementById('form'),
+            input  = document.getElementById('message');
+            area   = document.getElementById('messagespace');
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        if (input.value) {
+          socket.emit('chat message', input.value);
+          input.value = '';
+        }
+      });
+
+      socket.on('chat message', msg => {
+        let div = document.createElement('div');
+        div.className = 'message';
+        let p = document.createElement('p');
+        p.className = 'c';
+        p.innerText = msg;
+        div.appendChild(p);
+        area.appendChild(div);
+      });
+    </script>
+    <div id='top'>
+      <p id='title' class='top'>undefined <span id='chatrooms'>Chat Rooms</span></p>
+      <p id='login' class='top'>Login</p>
+      <div id='roomselec'>
+        <p id='rooms' class='top'>Rooms</p>
+        <div id='rooms2'>
+          <a href='/' id='room1' class='r'>Room 1</a>
+          <a href='/' id='room2' class='r'>Room 2</a>
+          <a href='/' id='room3' class='r'>Room 3</a>
+        </div>
+      </div>
+    </div>
+    <div id='messagespace'>
+      <div class='message'>
+        <p>jdiopawdnaoisdmwaimsklamcaoisndklawmncoiaWdmlksmcdaklxcmwnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnna</p>
+      </div>
+      <div class='message'>
+        <p>jdiopawdnaoisdmwaimsklamcaoisndklawmncoiaWdmlksmcdaklxcmwnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnna</p>
+        <p class='c'>User1</p>
+        <p class='c'>Date</p>
+      </div>
+      <div class='message'>
+        <p class='c'>jdiopawdnaoisdmwaimsklamcaoisndklawmncoiaWdmlksmcdaklxcmwnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnna</p>
+        <p class='c'>User1</p>
+        <p class='c'>Date</p>
+      </div>
+      <div class='message'>
+        <p class='c'>jdiopawdnaoisdmwaimsklamcaoisndklawmncoiaWdmlksmcdaklxcmwnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnna</p>
+        <p class='c'>User1</p>
+        <p class='c'>Date</p>
+      </div>
+      <div class='message'>
+        <p class='c'>jdiopawdnaoisdmwaimsklamcaoisndklawmncoiaWdmlksmcdaklxcmwnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnna</p>
+        <p class='c'>User1</p>
+        <p class='c'>Date</p>
+      </div>
+      <div class='message'>
+        <p class='c'>jdiopawdnaoisdmwaimsklamcaoisndklawmncoiaWdmlksmcdaklxcmwnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnna</p>
+        <p class='c'>User1</p>
+        <p class='c'>Date</p>
+      </div>
+    </div>
+    <form id='form' action=''>
+      <input type='text' id='message' />
+      <input type='submit'>Send Message</button>
+    </form>
+  </body>
+</html>

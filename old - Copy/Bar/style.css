@@ -1,0 +1,33 @@
+.bar {
+  width: 90%;
+  margin: 10% 5%;
+  border: 3px solid black;
+  height: 30px;
+  background-color:white;
+}
+#rbar {
+  background-color: red;
+  height: 30px;
+  width:0.01%;
+}
+#gbar {
+  background-color: green;
+  height: 30px;
+  width:0.01%;
+}
+#bbar {
+  background-color: blue;
+  height: 30px;
+  width: 0.01%;
+}
+button {
+  float: right;
+  margin-top: 4%;
+}
+p {
+  width: 50%;
+  float: left;
+}
+div {
+  margin: 0px;
+}

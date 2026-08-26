@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>$$$</title>
+    <style>
+      * {
+        margin: 0px;
+      }
+      #divTower {
+        position: fixed;
+        bottom: 12.5vh;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+        width: 100vw;
+      }
+      #divTower > p {
+        font-size: 4vh;
+        width: 20vw;
+        height: 12.5vh;
+        text-align: center;
+        background-color: rgba(44, 44, 44, 0.705);
+        border: 0.5vh solid rgb(44, 44, 44);
+        padding: 4.25vh;
+      }
+      #divControls {
+        padding: 2.5vh 0vw;
+        display: flex;
+        position: fixed;
+        background-color: rgb(20, 20, 20);
+        flex-direction: row;
+        align-items: center;
+        width: 100vw;
+        bottom: 0px;
+        color: white;
+        text-align: center;
+      }
+      #inputBet {
+        width: 25vw;
+        font-size: 4.5vh;
+        margin: 0vh 4.16666667vw;
+      }
+      #inputBet[type='number'] {
+        background-color: rgb(31, 31, 31);
+        border: 0.5vw solid white;
+        color: white;
+        text-align: center;
+      }
+      #btnBet {
+        width: 25vw;
+        font-size: 4.5vh;
+        margin: 0vh 4.16666667vw;
+      }
+      #txtBalance {
+        width: 25vw;
+        font-size: 4.5vh;
+        margin: 0vh 4.16666667vw;
+      }
+      #divPopUp {
+        display: none;
+        position: absolute;
+        width: 30vw;
+        font-size: 4vh;
+        text-align: center;
+        background-color: red;
+        border: 0.2vw solid black;
+        padding: 13vh 0vw;
+      }
+      #divOutcome > p {
+        display: inherit;
+        width: 100vw;
+        font-size: 10vh;
+        text-align: center;
+        background-color: rgb(51, 255, 0);
+        border: 0.2vw solid black;
+        margin-top: 30vh;
+        padding: 12.5vh 0vw;
+        z-index: 3;
+      }
+      #divOutcome {
+        display: none;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        background-color: rgba(14, 14, 14, 0.849);
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='divPopUp'>Generic Message</div>
+    <div id='divOutcome'><p>Generic Message</p></div>
+    <div id='divTower'>
+      <p>0.25x</p>
+      <p>0.5x</p>
+      <p>1x</p>
+      <p>2x</p>
+      <p>4x</p>
+      <p>8x</p>
+    </div>
+    <div id='divControls'>
+      <input type='number' id='inputBet' min='0' value='0' step = '0.01' />
+      <p id='btnBet'>Finalize Bet</p>
+      <p id='txtBalance'>$0</p>
+    </div>
+    <script>
+      const divTower = document.getElementById('divTower');
+      const btnBet = document.getElementById('btnBet');
+      const inputBet = document.getElementById('inputBet');
+      const txtBalance = document.getElementById('txtBalance');
+      const divPopUp = document.getElementById('divPopUp');
+      const divOutcome = document.getElementById('divOutcome');
+      working = false;
+      btnBet.addEventListener('click', start);
+      divPopUp.addEventListener('click', hidepopup);
+      divOutcome.addEventListener('click', function(){ divOutcome.style.display = 'none'; reset(); });
+      function restock() {
+        curdate = new Date();
+        curdate = '' + curdate.getDate() + curdate.getMonth() + curdate.getFullYear();
+        olddate = localStorage.getItem('Date');
+        if(olddate == null) {
+          localStorage.setItem('Date', btoa(curdate));4
+          localStorage.setItem('Balance',btoa(parseFloat(atob(localStorage.getItem('Balance'))) + 1000));
+        }else if(atob(olddate) !== curdate) {
+          localStorage.setItem('Balance',btoa(parseFloat(atob(localStorage.getItem('Balance'))) + 1000));
+          localStorage.setItem('Date', btoa(curdate));
+        }
+        fetchBalance();
+      }
+      function fetchBalance() {
+        bal = localStorage.getItem('Balance');
+        if(bal == null) {
+          localStorage.setItem('Balance', btoa(1000));
+          bal = btoa(1000);
+        }
+        bal = atob(bal);
+        txtBalance.innerHTML = '$' + bal;
+      }
+      function setBalance() {
+        localStorage.setItem('Balance', btoa(txtBalance.innerHTML.split('$')[1]));
+      }
+      function start() {
+        if(working !== true) {
+          working = true;
+          let numBet = inputBet.value;
+          if(numBet == '') { 
+            showpopup('Invalid Bet');
+            working = false;
+            return;
+          }else if(parseFloat(numBet) == 0) {
+            showpopup('Cannot Bet $0');
+            working = false;
+            return;
+          }else if(parseFloat(numBet) > txtBalance.innerHTML.split('$')[1]) {
+            showpopup('Cannot Bet More Than You Have');
+            working = false;
+            return;
+          }
+          txtBalance.innerHTML = '$' + (Math.floor((parseFloat(txtBalance.innerHTML.split('$')[1]) - Math.floor(parseFloat(numBet) * 100) / 100) * 100) / 100);
+          decision();
+        }
+      }
+      function showpopup(message) {
+        divPopUp.style.display = 'block';
+        divPopUp.innerHTML = message;
+        clearTimeout('clearpopup');
+        clearpopup = setTimeout(hidepopup, 3000);
+      }
+      function hidepopup() {
+        clearTimeout('clearpopup');
+        divPopUp.style.display = 'none';
+      }
+      function up() {
+        let multipliers = divTower.childNodes;
+        let unlitMulti = undefined;
+        for(i = 1; i < multipliers.length; i += 2) {
+          if(window.getComputedStyle(multipliers[i]).backgroundColor !== 'rgb(255, 255, 0)') {
+            unlitMulti = multipliers[i];
+            break;
+          }
+        }
+        if(unlitMulti !== undefined) {
+          unlitMulti.style.backgroundColor = 'yellow';
+        } else {
+          return 't';
+        }
+      }
+      function reset() {
+        for(i = 1; i < divTower.childNodes.length; i += 2) {
+          divTower.childNodes[i].style.backgroundColor = 'rgba(44, 44, 44, 0.705)';
+        }
+      }
+      function showoutcome(winnings) {
+        divOutcome.style.display = 'block';
+        divOutcome.childNodes[0].innerHTML = 'You Win: $' + winnings;
+      }
+      function decision() {
+        let winnings = 0;
+        if(Math.random() >= 0.325) {
+          let top = up();
+          if(top == 't') {
+            winnings = Math.floor(inputBet.value*8*100)/100;
+            showoutcome(winnings);
+            txtBalance.innerHTML = '$' + (parseFloat(txtBalance.innerHTML.split('$')[1]) + winnings);
+            setBalance();
+            working = false;
+          } else {
+            setTimeout(decision, 400);
+          }
+        } else {
+          let levels = divTower.childNodes;
+          let thelevel = 5;
+          for(i = 1; i < levels.length; i += 2) {
+            if(window.getComputedStyle(levels[i]).backgroundColor == 'rgba(44, 44, 44, 0.706)') {
+              thelevel = ((i - 1) / 2) - 1;
+              break;
+            }
+          }
+          if(thelevel == -1) {
+            showoutcome(0);
+          } else {
+            winnings = Math.floor(parseFloat(inputBet.value) * 100 * (0.25 * Math.pow(2, thelevel))) / 100;
+          }
+          showoutcome(winnings);
+          txtBalance.innerHTML = '$' + (parseFloat(txtBalance.innerHTML.split('$')[1]) + Math.floor(winnings * 100)/100);
+          setBalance();
+          working = false;
+        }
+      }
+      fetchBalance();
+      restock();
+    </script>
+  </body>
+</html>

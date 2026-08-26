@@ -1,0 +1,17 @@
+* {
+  margin: 0px;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightblue;
+  overflow: hidden;
+}
+#daBoi {
+  width: 10vw;
+  height: 10vw;
+  background-color: black;
+  transition: transform 1s, margin-left 1s, margin-top 1s;
+  transition-timing-function: ease-out;
+  transform-origin: center;
+}

@@ -1,0 +1,46 @@
+* {
+  margin: 0vw;
+}
+#dealer {
+  position: absolute;
+  bottom: 63vw;
+}
+#hand {
+  position: absolute;
+  bottom: 38vw;
+}
+.card {
+  position: absolute;
+  padding-top: 15vw;
+}
+.symbol {
+  position: absolute;
+  width: 5vw;
+  right: 1vw;
+  top: 16vw;
+}
+.value {
+  font-size: 11vw;
+  text-align: center;
+  position: relative;
+  border: 1vw solid black;
+  width: 13vw;
+  height: 15.5vw;
+  padding-top: 3.5vw;
+  background-color: white;
+}
+#btns {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+}
+.btn {
+  padding: 1vw 10vw;
+  border: 1vw solid black;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 3vw;
+  z-index: -99;
+}

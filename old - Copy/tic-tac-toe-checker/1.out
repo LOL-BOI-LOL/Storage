@@ -1,0 +1,17 @@
+O-X-OOXXX = X Wins
+XOX-OXO-X = X Wins
+X-O-XO--O = O Wins
+OXOXXOXOX = TIE
+--X-X-XOO = X Wins
+XXOXO-O-- = O Wins
+XOXXOOOXX = TIE
+--------- = TIE
+
+O-X-OOXXX = X WINS
+XOX-OXO-X = X WINS
+X-O-XO--O = O WINS
+OXOXXOXOX = TIE
+--X-X-XOO = X WINS
+XXOXO-O-- = O WINS
+XOXXOOOXX = TIE
+--------- = TIE

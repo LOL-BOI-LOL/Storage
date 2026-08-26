@@ -1,0 +1,11 @@
+* {
+  margin: 0px;
+  position: absolute;
+}
+body {
+  overflow: hidden;
+}
+p {
+  font-size: 20vw;
+  user-select: none;
+}

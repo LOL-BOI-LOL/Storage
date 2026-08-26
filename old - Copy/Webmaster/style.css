@@ -1,0 +1,84 @@
+* {
+  margin: 0px;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  /*
+  background-attachment: fixed;
+  background-image: url("earth.jpg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  */
+  background-color: #050019;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slide {
+  align-items: center;
+  background-color: #0a0a0a;
+  display: flex;
+  margin: 8vh 10vw;
+  width: 80vw;
+}
+
+.slideContent {
+  align-content: justify;
+  color: #fafaff;
+  font: Georgia, serif;
+  font-size: 1.5vw;
+  font-weight: 100;
+  padding: 5vh 0vw 5vh 6vw;
+}
+
+.slideImage {
+  width: 50%;
+  padding: 5vh 6vw;
+}
+
+.pricing {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price-option {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30vw;
+  max-width: 300px;
+  height: 50vh;
+  background-image: radial-gradient(at top left, #00db87, #008f58, #007548, #002e1c);
+  border-radius: 3em;
+  transition: transform .5s;
+  margin: 0px auto;
+}
+
+.price-option:hover {
+  transform: scale(1.2);
+}
+
+.price-head {
+  padding-top: 1em;
+  font-size: min(3vw, 33.48px);
+  font-weight: 800;
+  color: white;
+  font-family: 'Red Hat Mono', monospace;
+}
+
+hr {
+  margin-top: 0.5em;
+  border: 1px dashed white;
+  width: 85%;
+  height: 0em;
+}

@@ -1,0 +1,27 @@
+* {
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  margin: 10px 10px;
+}
+
+p {
+  text-align: center;
+  margin: 10px 0px;
+}

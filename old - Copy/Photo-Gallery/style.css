@@ -1,0 +1,22 @@
+body {
+  margin:0px;
+}
+#titlespace {
+  margin:0px;
+  background-color:darkcyan;
+}
+#title {
+  padding:20px 0px 5px 20px;
+  margin:0vw;
+  font-size:30px;
+  display:inline-block;
+}
+#navbar {
+  margin:0px;
+  padding:20px 0px 0px 50px;
+}
+a.navlink {
+  margin:0px;
+  text-align:center;
+  float:left;
+}

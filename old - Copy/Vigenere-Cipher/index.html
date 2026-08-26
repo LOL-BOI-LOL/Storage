@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class='c'>
+    <p>Vigenere Cipher</p>
+    <label for='msgV'>Message: </label>
+    <input type='text' id='msgV' />
+    <label for='keyV'>Key: </label>
+    <input type='text' id='keyV' />
+    <button id='encryptV'>Encrypt</button>
+    <button id='decryptV'>Decrypt</button>
+    <script src="script.js"></script>
+  </div>
+  <div class='c'>
+    <p>Caeser Cipher</p>
+    <label for='msgC'>Message: </label>
+    <input type='text' id='msgC' />
+    <label for='offsetC'>Offset: </label>
+    <div>
+      <p id='offsetVC'></p>
+      <input type='range' id='offsetC' min='0' max='26' step='1' start='0' />
+    </div>
+    <button id='encryptC'>Encrypt</button>
+    <button id='decryptC'>Decrypt</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

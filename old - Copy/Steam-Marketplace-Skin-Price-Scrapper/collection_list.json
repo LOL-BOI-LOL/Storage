@@ -1,0 +1,356 @@
+{
+  "Anubis Collection": {
+    "R8 Revolver | Inlay": "Consumer Grade",
+    "M249 | Submerged": "Consumer Grade",
+    "XM1014 | Hieroglyph": "Consumer Grade",
+    "MP7 | Sunbaked": "Consumer Grade",
+    "AUG | Snake Pit": "Consumer Grade",
+    "M4A1-S | Mud-Spec": "Industrial Grade",
+    "SSG 08 | Azure Glyph": "Industrial Grade",
+    "USP-S | Desert Tactical": "Industrial Grade",
+    "MAC-10 | Echoing Sands": "Industrial Grade"
+  },
+  "Ancient Collection": {
+    "Nova | Army Sheen": "Consumer Grade",
+    "SG 553 | Lush Ruins": "Consumer Grade",
+    "P90 | Ancient Earth": "Consumer Grade",
+    "SSG 08 | Jungle Dashed": "Consumer Grade",
+    "R8 Revolver | Night": "Consumer Grade",
+    "MP7 | Tall Grass": "Industrial Grade",
+    "P2000 | Panther Camo": "Industrial Grade",
+    "G3SG1 | Ancient Ritual": "Industrial Grade",
+    "CZ75-Auto | Silver": "Industrial Grade"
+  },
+  "Assault Collection": {
+    "SG 553 | Tornado": "Consumer Grade",
+    "UMP-45 | Caramel": "Consumer Grade",
+    "Five-SeveN | Candy Apple": "Industrial Grade"
+  },
+  "Aztec Collection": {
+    "Nova | Forest Leaves": "Consumer Grade",
+    "Five-SeveN | Jungle": "Consumer Grade",
+    "SSG 08 | Lichen Dashed": "Consumer Grade",
+    "AK-47 | Jungle Spray": "Industrial Grade",
+    "M4A4 | Jungle Tiger": "Industrial Grade"
+  },
+  "Baggage Collection": {
+    "G3SG1 | Contractor": "Consumer Grade",
+    "MP7 | Olive Plaid": "Consumer Grade",
+    "CZ75-Auto | Green Plaid": "Consumer Grade",
+    "MP9 | Green Plaid": "Consumer Grade",
+    "SSG 08 | Sand Dune": "Consumer Grade",
+    "SG 553 | Traveler": "Industrial Grade",
+    "P90 | Leather": "Industrial Grade",
+    "MAC-10 | Commuter": "Industrial Grade",
+    "P2000 | Coach Class": "Industrial Grade"
+  },
+  "Bank Collection": {
+    "Tec-9 | Urban DDPAT": "Consumer Grade",
+    "SG 553 | Army Sheen": "Consumer Grade",
+    "Sawed-Off | Forest DDPAT": "Consumer Grade",
+    "Negev | Army Sheen": "Consumer Grade",
+    "MP7 | Forest DDPAT": "Consumer Grade",
+    "R8 Revolver | Bone Mask": "Consumer Grade",
+    "UMP-45 | Carbon Fiber": "Industrial Grade",
+    "Nova | Caged Steel": "Industrial Grade",
+    "MAC-10 | Silver": "Industrial Grade",
+    "Glock-18 | Death Rattle": "Industrial Grade",
+    "G3SG1 | Green Apple": "Industrial Grade"
+  },
+  "Cache Collection": {
+    "Negev | Nuclear Waste": "Industrial Grade",
+    "P250 | Contamination": "Industrial Grade",
+    "AUG | Radiation Hazard": "Industrial Grade",
+    "PP-Bizon | Chemical Green": "Industrial Grade",
+    "SG 553 | Fallout Warning": "Industrial Grade",
+    "Five-SeveN | Hot Shot": "Industrial Grade"
+  },
+  "Canals Collection": {
+    "CZ75-Auto | Indigo": "Consumer Grade",
+    "AUG | Navy Murano": "Consumer Grade",
+    "R8 Revolver | Canal Spray": "Consumer Grade",
+    "Negev | Boroque Sand": "Consumer Grade",
+    "SCAR-20 | Stone Mosaico": "Consumer Grade",
+    "AK-47 | Baroque Purple": "Industrial Grade",
+    "SG 553 | Candy Apple": "Industrial Grade",
+    "Tec-9 | Orange Murano": "Industrial Grade",
+    "P250 | Dark Filigree": "Industrial Grade"
+  },
+  "Cobblestone Collection": {
+    "P90 | Storm": "Consumer Grade",
+    "UMP-45 | Indigo": "Consumer Grade",
+    "MAC-10 | Indigo": "Consumer Grade",
+    "SCAR-20 | Storm": "Consumer Grade",
+    "Dual Berettas | Briar": "Consumer Grade",
+    "USP-S | Royal Blue": "Industrial Grade",
+    "Nova | Green Apple": "Industrial Grade",
+    "MAG-7 | Silver": "Industrial Grade",
+    "Sawed-Off | Rust Coat": "Industrial Grade"
+  },
+  "Dust Collection": {
+    "M4A4 | Desert Storm": "Industrial Grade",
+    "SCAR-20 | Palm": "Industrial Grade",
+    "AK-47 | Predator": "Industrial Grade"
+  },
+  "Dust II Collection": {
+    "Nova | Predator": "Consumer Grade",
+    "MP9 | Sand Dashed": "Consumer Grade",
+    "P90 | Sand Spray": "Consumer Grade",
+    "SCAR-20 | Sand Mesh": "Consumer Grade",
+    "P250 | Sand Dune": "Consumer Grade",
+    "G3SG1 | Desert Storm": "Consumer Grade",
+    "Tec-9 | VariCamo": "Industrial Grade",
+    "MAC-10 | Palm": "Industrial Grade",
+    "Five-SeveN | Orange Peel": "Industrial Grade",
+    "AK-47 | Safari Mesh": "Industrial Grade",
+    "Sawed-Off | Snake Camo": "Industrial Grade"
+  },
+  "Inferno Collection": {
+    "MAG-7 | Sand Dune": "Consumer Grade",
+    "Nova | Walnut": "Consumer Grade",
+    "P250 | Gunsmoke": "Industrial Grade",
+    "M4A4 | Tornado": "Industrial Grade"
+  },
+  "Italy Collection": {
+    "PP-Bizon | Sand Dashed": "Consumer Grade",
+    "Nova | Sand Dune": "Consumer Grade",
+    "FAMAS | Colony": "Consumer Grade",
+    "AUG | Contractor": "Consumer Grade",
+    "Tec-9 | Groundwater": "Consumer Grade",
+    "Nova | Candy Apple": "Industrial Grade",
+    "Dual Berettas | Stained": "Industrial Grade",
+    "P2000 | Granite Marbleized": "Industrial Grade",
+    "UMP-45 | Gunsmoke": "Industrial Grade",
+    "M4A1-S | Boreal Forest": "Industrial Grade",
+    "XM1014 | CaliCamo": "Industrial Grade"
+  },
+  "Lake Collection": {
+    "G3SG1 | Jungle Dashed": "Consumer Grade",
+    "SG 553 | Waves Perforated": "Consumer Grade",
+    "Galil AR | Sage Spray": "Consumer Grade",
+    "AUG | Storm": "Consumer Grade",
+    "XM1014 | Blue Spruce": "Consumer Grade",
+    "P250 | Boreal Forest": "Consumer Grade",
+    "XM1014 | Blue Steel": "Industrial Grade",
+    "FAMAS | Cyanospatter": "Industrial Grade",
+    "PP-Bizon | Night Ops": "Industrial Grade",
+    "AWP | Safari Mesh": "Industrial Grade",
+    "Desert Eagle | Mudder": "Industrial Grade"
+  },
+  "Militia Collection": {
+    "XM1014 | Grassland": "Consumer Grade",
+    "MAC-10 | Tornado": "Consumer Grade",
+    "PP-Bizon | Forest Leaves": "Consumer Grade",
+    "P2000 | Grassland Leaves": "Industrial Grade"
+  },
+  "Mirage Collection": {
+    "Galil AR | Hunting Blind": "Consumer Grade",
+    "P90 | Scorched": "Consumer Grade",
+    "G3SG1 | Safari Mesh": "Consumer Grade",
+    "AUG | Colony": "Consumer Grade",
+    "Five-SeveN | Contractor": "Consumer Grade",
+    "P250 | Bone Mask": "Consumer Grade",
+    "MP7 | Orange Peel": "Industrial Grade",
+    "Glock-18 | Groundwater": "Industrial Grade",
+    "SG 553 | Gator Mesh": "Industrial Grade",
+    "SSG 08 | Tropical Storm": "Industrial Grade",
+    "Negev | CaliCamo": "Industrial Grade"
+  },
+  "Nuke Collection": {
+    "MAG-7 | Irradiated Alert": "Consumer Grade",
+    "Sawed-Off | Irradiated Alert": "Consumer Grade",
+    "PP-Bizon | Irradiated Alert": "Consumer Grade",
+    "P90 | Fallout Warning": "Industrial Grade",
+    "UMP-45 | Fallout Warning": "Industrial Grade",
+    "XM1014 | Fallout Warning": "Industrial Grade"
+  },
+  "Office Collection": {
+    "FAMAS | Contrast Spray": "Consumer Grade",
+    "Galil AR | Winter Forest": "Industrial Grade",
+    "G3SG1 | Arctic Camo": "Industrial Grade",
+    "M249 | Blizzard Marbleized": "Industrial Grade"
+  },
+  "Overpass Collection": {
+    "Sawed-Off | Sage Spray": "Consumer Grade",
+    "UMP-45 | Scorched": "Consumer Grade",
+    "M249 | Contrast Spray": "Consumer Grade",
+    "MAG-7 | Storm": "Consumer Grade",
+    "MP9 | Storm": "Consumer Grade",
+    "Desert Eagle | Urban DDPAT": "Industrial Grade",
+    "MP7 | Gunsmoke": "Industrial Grade",
+    "Glock-18 | Night": "Industrial Grade",
+    "P2000 | Grassland": "Industrial Grade"
+  },
+  "Safehouse Collection": {
+    "Dual Berettas | Contractor": "Consumer Grade",
+    "MP7 | Army Recon": "Consumer Grade",
+    "Tec-9 | Army Mesh": "Consumer Grade",
+    "SSG 08 | Blue Spruce": "Consumer Grade",
+    "SCAR-20 | Contractor": "Consumer Grade",
+    "MP9 | Orange Peel": "Industrial Grade",
+    "AUG | Condemned": "Industrial Grade",
+    "USP-S | Forest Leaves": "Industrial Grade",
+    "Galil AR | VariCamo": "Industrial Grade",
+    "M249 | Gator Mesh": "Industrial Grade",
+    "G3SG1 | VariCamo": "Industrial Grade"
+  },
+  "St. Marc Collection": {
+    "M249 | Jungle": "Consumer Grade",
+    "MP5-SD | Bamboo Garden": "Consumer Grade",
+    "MAC-10 | Surfwood": "Consumer Grade",
+    "PP-Bizon | Seabird": "Consumer Grade",
+    "Sawed-Off | Jungle Thicket": "Consumer Grade",
+    "M4A4 | Dark Blossom": "Industrial Grade",
+    "P90 | Sunset Lily": "Industrial Grade",
+    "Tec-9 | Rust Leaf": "Industrial Grade",
+    "XM1014 | Banana Leaf": "Industrial Grade"
+  },
+  "Train Collection": {
+    "PP-Bizon | Urban Dashed": "Consumer Grade",
+    "Nova | Polar Mesh": "Consumer Grade",
+    "Five-SeveN | Forest Night": "Consumer Grade",
+    "G3SG1 | Polar Camo": "Consumer Grade",
+    "Dual Berettas | Colony": "Consumer Grade",
+    "UMP-45 | Urban DDPAT": "Consumer Grade",
+    "M4A4 | Urban DDPAT": "Industrial Grade",
+    "MAC-10 | Candy Apple": "Industrial Grade",
+    "P90 | Ash Wood": "Industrial Grade",
+    "SCAR-20 | Carbon Fiber": "Industrial Grade",
+    "MAG-7 | Metallic DDPAT": "Industrial Grade",
+    "P250 | Metallic DDPAT": "Industrial Grade"
+  },
+  "Vertigo Collection": {
+    "XM1014 | Urban Perforated": "Consumer Grade",
+    "MAC-10 | Urban DDPAT": "Consumer Grade",
+    "PP-Bizon | Carbon Fiber": "Industrial Grade"
+  },
+  "2018 Inferno Collection": {
+    "MAG-7 | Rust Coat": "Consumer Grade",
+    "AUG | Sweeper": "Consumer Grade",
+    "UMP-45 | Mudder": "Consumer Grade",
+    "MP9 | Slide": "Consumer Grade",
+    "MP5-SD | Dirt Drop": "Consumer Grade",
+    "PP-Bizon | Candy Apple": "Industrial Grade",
+    "MAC-10 | Calf Skin": "Industrial Grade",
+    "R8 Revolver | Nitro": "Industrial Grade",
+    "Glock-18 | High Beam": "Industrial Grade"
+  },
+  "2018 Nuke Collection": {
+    "Nova | Mandrel": "Consumer Grade",
+    "PP-Bizon | Facility Sketch": "Consumer Grade",
+    "UMP-45 | Facility Dark": "Consumer Grade",
+    "Five-SeveN | Coolant": "Consumer Grade",
+    "P250 | Facility Draft": "Consumer Grade",
+    "MP7 | Motherboard": "Industrial Grade",
+    "Negev | Bulkhead": "Industrial Grade",
+    "Galil AR | Cold Fusion": "Industrial Grade",
+    "M4A4 | Mainframe": "Industrial Grade"
+  },
+  "2021 Dust II Collection": {
+    "R8 Revolver | Desert Brush": "Consumer Grade",
+    "P90 | Desert DDPAT": "Consumer Grade",
+    "SG 553 | Bleached": "Consumer Grade",
+    "MP7 | Prey": "Consumer Grade",
+    "Sawed-Off | Parched": "Consumer Grade",
+    "AUG | Spalted Wood": "Industrial Grade",
+    "MP9 | Old Roots": "Industrial Grade",
+    "Five-SeveN | Withered Vine": "Industrial Grade",
+    "M249 | Midnight Palm": "Industrial Grade"
+  },
+  "2021 Mirage Collection": {
+    "P250 | Drought": "Consumer Grade",
+    "PP-Bizon | Anolis": "Consumer Grade",
+    "MAG-7 | Navy Sheen": "Consumer Grade",
+    "MAC-10 | Sienna Damask": "Consumer Grade",
+    "SSG 08 | Prey": "Consumer Grade",
+    "Dual Berettas | Drift Wood": "Industrial Grade",
+    "FAMAS | CaliCamo": "Industrial Grade",
+    "CZ75-Auto | Midnight Palm": "Industrial Grade",
+    "P90 | Verdant Growth": "Industrial Grade"
+  },
+  "2021 Vertigo Collection": {
+    "MAC-10 | Strats": "Consumer Grade",
+    "FAMAS | Faulty Wiring": "Consumer Grade",
+    "XM1014 | Blue Tire": "Consumer Grade",
+    "CZ75-Auto | Framework": "Consumer Grade",
+    "Dual Berettas | Oil Change": "Consumer Grade",
+    "Glock-18 | Red Tire": "Industrial Grade",
+    "UMP-45 | Mechanism": "Industrial Grade",
+    "SSG 08 | Carbon Fiber": "Industrial Grade",
+    "PP-Bizon | Breaker Box": "Industrial Grade"
+  },
+  "Chop Shop Collection": {
+    "SCAR-20 | Army Sheen": "Consumer Grade",
+    "CZ75-Auto | Army Sheen": "Consumer Grade",
+    "M249 | Impact Drill": "Consumer Grade",
+    "MAG-7 | Seabird": "Consumer Grade",
+    "Desert Eagle | Night": "Industrial Grade",
+    "Galil AR | Urban Rubble": "Industrial Grade",
+    "USP-S | Para Green": "Industrial Grade"
+  },
+  "Gods and Monsters Collection": {
+    "MP7 | Asterion": "Consumer Grade",
+    "AUG | Daedalus": "Consumer Grade",
+    "Dual Berettas | Moon in Libra": "Consumer Grade",
+    "Nova | Moon in Libra": "Consumer Grade",
+    "Tec-9 | Hades": "Industrial Grade",
+    "P2000 | Pathfinder": "Industrial Grade",
+    "AWP | Sun in Leo": "Industrial Grade",
+    "M249 | Shipping Forecast": "Industrial Grade"
+  },
+  "Rising Sun Collection": {
+    "PP-Bizon | Bamboo Print": "Consumer Grade",
+    "Sawed-Off | Bamboo Shadow": "Consumer Grade",
+    "Tec-9 | Bamboo Forest": "Consumer Grade",
+    "G3SG1 | Orange Kimono": "Consumer Grade",
+    "P250 | Mint Kimono": "Consumer Grade",
+    "P250 | Crimson Kimono": "Industrial Grade",
+    "Desert Eagle | Midnight Storm": "Industrial Grade"
+  },
+  "Alpha Collection": {
+    "M249 | Jungle DDPAT": "Consumer Grade",
+    "Tec-9 | Tornado": "Consumer Grade",
+    "MP9 | Dry Season": "Consumer Grade",
+    "Five-SeveN | Anodized Gunmetal": "Consumer Grade",
+    "XM1014 | Jungle": "Consumer Grade",
+    "MP7 | Groundwater": "Consumer Grade",
+    "Glock-18 | Sand Dune": "Industrial Grade",
+    "SSG 08 | Mayan Dreams": "Industrial Grade",
+    "Negev | Palm": "Industrial Grade",
+    "Sawed-Off | Mosaico": "Industrial Grade",
+    "P250 | Facets": "Industrial Grade"
+  },
+  "Norse Collection": {
+    "SG 553 | Barricade": "Consumer Grade",
+    "FAMAS | Night Borre": "Consumer Grade",
+    "MP7 | Scorched": "Consumer Grade",
+    "Galil AR | Tornado": "Consumer Grade",
+    "SSG 08 | Red Stone": "Consumer Grade",
+    "MAG-7 | Chainmail": "Industrial Grade",
+    "M4A1-S | Moss Quartz": "Industrial Grade",
+    "USP-S | Pathfinder": "Industrial Grade",
+    "Dual Berettas | Pyre": "Industrial Grade"
+  },
+  "Control Collection": {
+    "AUG | Surveillance": "Consumer Grade",
+    "XM1014 | Charter": "Consumer Grade",
+    "MP9 | Army Sheen": "Consumer Grade",
+    "P250 | Forest Night": "Consumer Grade",
+    "CZ75-Auto | Jungle Dashed": "Consumer Grade",
+    "Dual Berettas | Switch Board": "Industrial Grade",
+    "Desert Eagle | The Bronze": "Industrial Grade",
+    "MAG-7 | Carbon Fiber": "Industrial Grade",
+    "MP5-SD | Nitro": "Industrial Grade"
+  },
+  "Havoc Collection": {
+    "PP-Bizon | Death Rattle": "Consumer Grade",
+    "Dual Berettas | Heist": "Consumer Grade",
+    "Sawed-Off | Clay Ambush": "Consumer Grade",
+    "M249 | Predator": "Consumer Grade",
+    "Tec-9 | Phoenix Chalk": "Consumer Grade",
+    "MP7 | Vault Heist": "Industrial Grade",
+    "R8 Revolver | Phoenix Marker": "Industrial Grade",
+    "UMP-45 | Houndstooth": "Industrial Grade",
+    "Nova | Rust Coat": "Industrial Grade"
+  }
+}

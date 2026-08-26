@@ -1,0 +1,2 @@
+$('#txt').ready(console.log('Hello Loaded'));
+$('#txt').hover(() => { $('#txt').css("margin-top", Math.floor(Math.random()*(window.innerWidth - $('#txt').width()) + 'px')); $('#txt').css("margin-left", Math.floor(Math.random()*(window.innerWidth - $('#txt').height()) + 'px')); })

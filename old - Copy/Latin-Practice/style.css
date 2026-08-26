@@ -1,0 +1,22 @@
+* {
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+table, th, td {
+  border: 1px black solid;
+}
+
+table {
+  width: 80vw;
+}
+
+input, button {
+  margin: 1vh 0vw;
+}

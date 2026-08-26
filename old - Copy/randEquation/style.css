@@ -1,0 +1,39 @@
+* {
+  margin: 0px;
+}
+body {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+div {
+  display: flex;
+  flex-direction: row;
+  margin: 5vh 5vw;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+  flex-wrap: wrap;
+}
+.boxes {
+  margin: 5vh 0vw;
+  width: 80vw;
+}
+input {
+  margin: 0vh 5vw;
+  width: 25vw;
+}
+button {
+  width: 25vw;
+}
+.charBox {
+  width: 5vw;
+  height: 5vw;
+  background-color: gray;
+  font-size: 5vw;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}

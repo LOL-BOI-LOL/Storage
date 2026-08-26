@@ -1,0 +1,20 @@
+* {
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #030305;
+  justify-content: center;
+  align-items: center;
+}
+
+#screen {
+  border: 1px solid #787878;
+}
+
+#hidden {
+  display: none;
+}

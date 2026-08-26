@@ -1,0 +1,18 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+div {
+  display: flex;
+  width: 90vw;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.c {
+  flex-direction: column;
+  border: 1px solid black;
+  padding-bottom: 25px;
+}

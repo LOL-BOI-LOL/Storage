@@ -1,0 +1,172 @@
+:root {
+  --text-color: #D8DCF6;
+  --box-color: #131520;
+}
+* {
+  margin: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  overflow: scroll;
+}
+.txtLink:hover, .txtLink:active { 
+  transition: all 0.6s linear;
+  color: white;
+}
+#divPages:hover #divLinks > p { display: block; }
+#divBlur {
+  display: none;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(7, 7, 7);
+  z-index: 2;
+}
+#divPopUp {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+#divPopUp > img {
+  display: inherit;
+  position: fixed;
+  z-index: 3;
+  border: 1vw solid white;
+  background-color: white;
+  max-width: 50%;
+  max-height: 50%;
+  width: auto;
+  height: auto;
+}
+audio {
+  display: none;
+}
+#divTop {
+  background-color: var(--box-color);
+  color: var(--text-color);
+  position: fixed;
+  width: 100%;
+}
+.txtLink {
+  color: var(--text-color);
+  text-decoration: none;
+}
+iframe {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+}
+@media screen and (max-width: 699px) {
+  #divMusic > img {
+    position: absolute;
+    top: 4vw;
+    right: 9vw;
+    width: 6.5vw;
+    filter: invert(100%);
+  }
+  #divMusic > input {
+    position: absolute;
+    top: 11.5vw;
+    right: 10.75vw;
+    width: 3vw;
+    height: 3vw;
+  }
+  .elementTop {
+    display: inline-block;
+    font-size: 4vw;
+    margin: 0vw;
+  }
+  #txtTitle {
+    font-size: 7vw;
+    padding: 5% 0% 1% 8%;
+    width: 95%;
+    text-align: center;
+  }
+  #divLinks {
+    position: absolute;
+    width: 100%;
+    margin-left: -5%;
+  }
+  #imgCatLogo {
+    width: 10%;
+    border-radius: 10%;
+    margin: 3% 0% 0% 15%;
+    position: fixed;
+  }
+  #divLinks > p {
+    box-shadow: 0px 3vw 5vw 0px black;
+    padding: 3vw 5vw;
+    z-index: 1;
+    display: none;
+    background-color: var(--box-color);
+    width: 50%;
+    margin: 0% 25%;
+  }
+  #btnHome { 
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 1% 0%;
+  }
+  #divPages {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 4vw;
+  }
+  #txtDropDown { 
+    position: relative;
+    display: block;
+    padding: 1% 0%;
+  }
+}
+@media screen and (min-width: 700px) {
+  #divMusic > img {
+    width: 47.77px;
+    position: absolute;
+    top: 11.94px;
+    right: 35.82px;
+    filter: invert(100%);
+  }
+  #divMusic > input {
+    position: absolute;
+    top: 65.67px;
+    right: 47.76px;
+    width: 17.91px;
+    height: 17.91px;
+  }
+  .elementTop {
+    display: inline-block;
+    font-size: 20px;
+    margin: 0vw;
+  }
+  #txtTitle {
+    font-size: 40px;
+    margin: 30px 70px 10px 100px;
+  }
+  #divLinks {
+    position: absolute;
+    margin-left: -13px;
+  }
+  #imgCatLogo {
+    width: 50px;
+    border-radius: 10%;
+    margin: 14px 0px 0px 25px;
+    position: fixed;
+  }
+  #divLinks > p {
+    min-width: 20px;
+    box-shadow: 0px 8px 16px 0px black;
+    padding: 12px 16px;
+    z-index: 1;
+    display: none;
+    background-color: var(--box-color);
+  }
+  #btnHome { margin-right: 30px; }
+  #divPages { display: inline-block; }
+  #txtDropDown { position: relative; }
+}
