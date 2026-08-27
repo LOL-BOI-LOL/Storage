@@ -11,8 +11,8 @@
     background-color: blue;
   }
   #container {
-  	width: 350px;
-    height: 350px;
+  	width: 300px;
+    height: 300px;
     contain: strict;
     background-color: green;
   }
@@ -131,7 +131,6 @@
           }
         }
       });
-      
       for (let i = 0; i < 2; ++i) {
         let j = 1 - i;
         switch (quadrants[i]) {
@@ -187,7 +186,6 @@
         nComps[i] = (v[0]-origin[0])*nVec[0]+(v[1]-origin[1])*nVec[1];
         xComps[i] = ((v[0]-origin[0])*xVec[0]+(v[1]-origin[1])*xVec[1])/nComps[i];
       });
-      
       return [[[xComps[0],this.corners[0][2]/nComps[0]],[xComps[1],this.corners[1][2]/nComps[1]],[xComps[1],this.corners[2][2]/nComps[1]],[xComps[0],this.corners[3][2]/nComps[0]]],cutImg(this.corners[0],this.len,...points,this.width,this.offset),deterSide(origin,points[0],this.dir)];
     }
     
@@ -288,17 +286,43 @@
     return "matrix3d("+[C[0][0],C[1][0],0,C[2][0],C[0][1],C[1][1],0,C[2][1],0,0,1,0,C[0][2],C[1][2],0,C[2][2]].join(",")+")";
   };
   
+  const returnRectangleSurfaces = (bottomLeftCornor, width, height, leftExitBottomYEndpointsAndLength, topExitLeftXEndpointsAndLength, rightExitBottomYEndpointsAndLength, bottomExitLeftXEndpointsAndLength) => {
+    		for(let i = 0; i < leftExitBottomYEndpointsAndLength.length-1; ++i){
+        	 console.log("new Surface(" + bottomLeftCornor[0] + "," + (bottomLeftCornor[1]+leftExitBottomYEndpointsAndLength[i][0]+leftExitBottomYEndpointsAndLength[i][1]) + "," + bottomLeftCornor[0] + "," + (bottomLeftCornor[1]+leftExitBottomYEndpointsAndLength[i+1][0]) + ', 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),\n');
+        }
+        console.log("new Surface(" + bottomLeftCornor[0] + "," + (bottomLeftCornor[1]+leftExitBottomYEndpointsAndLength[leftExitBottomYEndpointsAndLength.length-1][0]+leftExitBottomYEndpointsAndLength[leftExitBottomYEndpointsAndLength.length-1][1]) + "," + bottomLeftCornor[0] + "," + (bottomLeftCornor[1]+height) + ', 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),\n');		
+    	
+      for(let i = 0; i < topExitLeftXEndpointsAndLength.length-1; ++i){
+        console.log("new Surface(" + (bottomLeftCornor[0]+topExitLeftXEndpointsAndLength[i][0]+topExitLeftXEndpointsAndLength[i][1]) + "," + (bottomLeftCornor[1]+height) + "," + (bottomLeftCornor[0]+topExitLeftXEndpointsAndLength[i+1][0]) + "," + (bottomLeftCornor[1]+height) + ', 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),\n');
+        }
+			  console.log("new Surface(" + (bottomLeftCornor[0]+topExitLeftXEndpointsAndLength[topExitLeftXEndpointsAndLength.length-1][0]+topExitLeftXEndpointsAndLength[topExitLeftXEndpointsAndLength.length-1][1]) + "," + (bottomLeftCornor[1]+height) + "," + (bottomLeftCornor[0]+width) + "," + (bottomLeftCornor[1]+height) + ', 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),\n');    	
+      
+      for(let i = 0; i < rightExitBottomYEndpointsAndLength.length-1; ++i){
+        	 console.log("new Surface(" + (bottomLeftCornor[0]+width) + "," + (bottomLeftCornor[1]+rightExitBottomYEndpointsAndLength[i][0]+rightExitBottomYEndpointsAndLength[i][1]) + "," + (bottomLeftCornor[0]+width) + "," + (bottomLeftCornor[1]+rightExitBottomYEndpointsAndLength[i+1][0]) + ', 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),\n');
+        }
+      console.log("new Surface(" + (bottomLeftCornor[0]+width) + "," + (bottomLeftCornor[1]+rightExitBottomYEndpointsAndLength[rightExitBottomYEndpointsAndLength.length-1][0]+rightExitBottomYEndpointsAndLength[rightExitBottomYEndpointsAndLength.length-1][1]) + "," + (bottomLeftCornor[0]+width) + "," + (bottomLeftCornor[1]+height) + ', 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),\n');		
+    	
+      for(let i = 0; i < bottomExitLeftXEndpointsAndLength.length-1; ++i){
+        	 console.log("new Surface(" + (bottomLeftCornor[0]+bottomExitLeftXEndpointsAndLength[i][0]+bottomExitLeftXEndpointsAndLength[i][1]) + "," + bottomLeftCornor[1] + "," + (bottomLeftCornor[0]+bottomExitLeftXEndpointsAndLength[i+1][0]) + "," + bottomLeftCornor[1] + ', 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),\n');
+        }
+			console.log("new Surface(" + (bottomLeftCornor[0]+bottomExitLeftXEndpointsAndLength[bottomExitLeftXEndpointsAndLength.length-1][0]+bottomExitLeftXEndpointsAndLength[bottomExitLeftXEndpointsAndLength.length-1][1]) + "," + bottomLeftCornor[1] + "," + (bottomLeftCornor[0]+width) + "," + bottomLeftCornor[1] + ', 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),\n');    	   
+  };
+  returnRectangleSurfaces([-50,-50],100,100,[[0,0],[5,10],[20,10]],[[0,0],[20,10],[50,10]],[[0,0],[50,10]],[[0,0]]);
   const keyStates = {"w":0,"s":0,"a":0,"d":0,"q":0,"e":0},
-        turnSpeed = 0.2,
-        moveSpeed = 1,
-  			objs = [new Surface(10, -10, 10, 10, 10, 5, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"],0.5,0.5),
-                new Surface(-10, -10, -10, 10, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"],0.5),
-                new Surface(-50, -50, 50, -50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
-                new Surface(50, -50, 50, 50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
-                new Surface(50, 50, -50, 50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
-                new Surface(-50, 50, -50, -50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"])],
-        sectors = [new Sector([[-50,-50],[0,-50],[0,50],[-50,50]],[1,0,2,3,4,5],[1]),
-                   new Sector([[50,-50],[0,-50],[0,50],[50,50]],[0,1,2,3,4,5],[0])],
+        turnSpeed = 0.02,
+        moveSpeed = 0.2,
+  			objs = [new Surface(-50,-50,-50,-45, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
+                new Surface(-50,-35,-50,-30, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
+                new Surface(-50,-20,-50,50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
+                new Surface(-50,50,-30,50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
+                new Surface(-20,50,0,50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
+                new Surface(10,50,50,50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
+                new Surface(50,-50,50,0, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
+                new Surface(50,10,50,50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
+                new Surface(-50,-50,50,-50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"])],
+        sectors = [//new Sector([[-50,-50],[0,-50],[0,50],[-50,50]],[1,0,2,3,4,5],[1]),
+                   //new Sector([[50,-50],[0,-50],[0,50],[50,50]],[0,1,2,3,4,5],[0]),
+                   new Sector([[-50,-50],[0,-50],[0,50],[-50,50]],[0,1,2,3,4,5,6,7,8],[])],
         cam = new Camera(sectors[0], [0, 0, 0], 0);
   
   const move = () => {
