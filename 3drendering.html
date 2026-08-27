@@ -32,9 +32,9 @@
           let t = ((p0[0]-p1[0])*v1[1]+(p1[1]-p0[1])*v1[0])/(v1[0]*v0[1]-v1[1]*v0[0]);
           return [p0[0]+v0[0]*t,p0[1]+v0[1]*t];
         },
-        cutImg = (pStrt0, len0, pStrt1, pEnd1, imgWidth) => {
+        cutImg = (pStrt0, len0, pStrt1, pEnd1, imgWidth, offset) => {
           let f = imgWidth / len0;
-          return [Math.sqrt((pEnd1[0]-pStrt1[0])**2+(pEnd1[1]-pStrt1[1])**2)*f+"px",-Math.sqrt((pStrt1[0]-pStrt0[0])**2+(pStrt1[1]-pStrt0[1])**2)*f+"px"];
+          return [Math.sqrt((pEnd1[0]-pStrt1[0])**2+(pEnd1[1]-pStrt1[1])**2)*f+"px",offset-Math.sqrt((pStrt1[0]-pStrt0[0])**2+(pStrt1[1]-pStrt0[1])**2)*f+"px"];
         },
         deterSide = (origin, p1, v1) => v1[0]*(p1[1]-origin[1])+v1[1]*(origin[0]-p1[0])>=0;
   
@@ -83,22 +83,22 @@
     srcs;
     ele;
     div;
-    widthMulti;
+    width;
     offset;
     
-    constructor(x1, y1, x2, y2, h, z, srcs, widthMulti, offset) {
+    constructor(x1, y1, x2, y2, h, z, srcs, widthMulti=1, offset=0) {
       this.corners = [[x1,y1,z+h/2],[x2,y2,z+h/2],[x2,y2,z-h/2],[x1,y1,z-h/2]];
       this.dir = [x2-x1,y2-y1];
       this.len = Math.sqrt((x2-x1)**2+(y2-y1)**2);
       this.srcs = srcs;
-      this.widthMulti = widthMulti;
-      this.offset = offset;
       this.div = document.createElement("DIV");
       this.div.className = "imgContainer";
       this.div.style.display = "none";
       this.ele = document.createElement("IMG");
       this.ele.src = srcs[0];
-      this.div.style.width = this.ele.naturalWidth*widthMulti+"px";
+      this.offset = -this.ele.naturalWidth*offset;
+      this.width = this.ele.naturalWidth*widthMulti;
+      this.div.style.width = this.width+"px";
       this.div.style.height = this.ele.naturalHeight+"px";
       this.div.appendChild(this.ele);
       mainContainer.appendChild(this.div);
@@ -188,7 +188,7 @@
         xComps[i] = ((v[0]-origin[0])*xVec[0]+(v[1]-origin[1])*xVec[1])/nComps[i];
       });
       
-      return [[[xComps[0],this.corners[0][2]/nComps[0]],[xComps[1],this.corners[1][2]/nComps[1]],[xComps[1],this.corners[2][2]/nComps[1]],[xComps[0],this.corners[3][2]/nComps[0]]],cutImg(this.corners[0], this.len, ...points, this.ele.naturalWidth),deterSide(origin,points[0],this.dir)];
+      return [[[xComps[0],this.corners[0][2]/nComps[0]],[xComps[1],this.corners[1][2]/nComps[1]],[xComps[1],this.corners[2][2]/nComps[1]],[xComps[0],this.corners[3][2]/nComps[0]]],cutImg(this.corners[0],this.len,...points,this.width,this.offset),deterSide(origin,points[0],this.dir)];
     }
     
     draw(cam) {
@@ -291,8 +291,8 @@
   const keyStates = {"w":0,"s":0,"a":0,"d":0,"q":0,"e":0},
         turnSpeed = 0.2,
         moveSpeed = 1,
-  			objs = [new Surface(10, -10, 10, 10, 10, 5, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
-                new Surface(-10, -10, -10, 10, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
+  			objs = [new Surface(10, -10, 10, 10, 10, 5, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"],0.5,0.5),
+                new Surface(-10, -10, -10, 10, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"],0.5),
                 new Surface(-50, -50, 50, -50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
                 new Surface(50, -50, 50, 50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
                 new Surface(50, 50, -50, 50, 20, 0, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),
