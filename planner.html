@@ -1,0 +1,220 @@
+<style>
+  * {
+  	margin: 0;
+  }
+  
+  body {
+  	width: 100vw;
+  	height: 100vh;
+  	display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+  }
+  
+  button {
+  	width: 300x;
+    height: 30px;
+  	position: absolute;
+    left: 0;
+  }
+  
+  #sec {
+  	top: 0;
+  }
+  
+  #show {
+  	top: 30px;
+  }
+  
+  #del {
+  	top: 60px;
+  }
+  
+  #prnt {
+  	top: 90px;
+  }
+</style>
+<button id="sec">Sector</button>
+<button id="show">Show Lines</button>
+<button id="prnt">Print</button>
+<button id="del">Delete</button>
+<canvas id="c"></canvas>
+<script>
+	const btn1 = document.getElementById("sec"),
+        btn2 = document.getElementById("show"),
+        btn4 = document.getElementById("prnt"),
+        btn3 = document.getElementById("del"),
+        c = document.getElementById("c"),
+        ctx = c.getContext("2d");
+  
+  var selected = [-100, -100],
+			lines = [],
+      dashed = [],
+      sectors = [],
+      show = false,
+      mode = 0;
+  
+  
+  c.width = 1000;
+  c.height = c.width;
+  const reset = () => {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, c.width, c.height);
+    ctx.strokeStyle = "rgba(255,255,255,0.5)";
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= c.width / 10; ++i) {
+      ctx.beginPath();
+      ctx.moveTo(0, i*10);
+      ctx.lineTo(c.width, i*10);
+      ctx.moveTo(i*10, 0);
+      ctx.lineTo(i*10, c.height);
+      ctx.closePath();
+      ctx.stroke();
+    }
+    ctx.fillStyle = "red";
+    if (selected[0] >= 0) {
+      for (let i = 0; i < Math.round(selected.length/2); ++i) {
+        ctx.beginPath();
+        ctx.arc(selected[i*2], selected[i*2+1], 5, 0, 2 * Math.PI, true);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+    ctx.fillStyle = "rgba(255,255,0,0.25)";
+    for (let i = 0; i < sectors.length; ++i) {
+      ctx.beginPath();
+      ctx.moveTo(sectors[i][0], sectors[i][1]);
+      for (let j = 0; j < Math.round(sectors[i].length/2)-1; ++j) {
+        ctx.lineTo(sectors[i][j*2+2],sectors[i][j*2+3]);
+      }
+      ctx.closePath();
+      ctx.fill();
+    }
+    if (show) {
+      ctx.strokeStyle = "rgba(100,255,100,0.5)";
+      ctx.lineWidth = 3;
+      for (let i = 0; i < dashed.length; ++i) {
+        ctx.setLineDash([5,15]);
+        ctx.beginPath();
+        ctx.moveTo(dashed[i][0], dashed[i][1]);
+        ctx.lineTo(dashed[i][2], dashed[i][3]);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+    ctx.strokeStyle = "green";
+    ctx.lineWidth = 3;
+    for (let i = 0; i < lines.length; ++i) {
+      ctx.beginPath();
+      ctx.moveTo(lines[i][0], lines[i][1]);
+      ctx.lineTo(lines[i][2], lines[i][3]);
+      ctx.closePath();
+      ctx.stroke();
+    }
+  };
+  
+  const extendLine = (p0x, p0y, p1x, p1y) => {
+    if (p1x-p0x == 0) {
+      return [p0x, 0, p1x, c.height];
+    } else {
+      let slope = (p1y-p0y)/(p1x-p0x);
+      return [0, p0y-slope*p0x, c.width, p0y+slope*(c.width-p0x)];
+    }
+  };
+  
+  c.onmousemove = e => {
+    reset();
+    ctx.strokeStyle = "yellow";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(Math.round(e.offsetX/10)*10, Math.round(e.offsetY/10)*10, 5, 0, 2 * Math.PI, true);
+    ctx.closePath();
+    ctx.stroke();
+  };
+  
+  c.onclick = e => {
+    if (mode == 1) {
+      let newPos = [Math.round(e.offsetX/10)*10, Math.round(e.offsetY/10)*10],
+          matched = false;
+      if (selected[0] >= 0) {
+        if (selected[0] == newPos[0] && selected[1] == newPos[1]) {
+          sectors.push(selected);
+          selected = [];
+        } else {
+          for (let i = 0; i < Math.round(selected.length / 2); ++i) {
+            if (selected[i*2] == newPos[0] && selected[i*2+1] == newPos[1])
+              matched = true;
+          }
+          if (!matched)
+            selected.push(...newPos);
+        }
+      } else {
+        selected.push(...newPos);
+      }
+    } else {
+      if (selected[0] >= 0) {
+        let newPos = [...selected, Math.round(e.offsetX/10)*10, Math.round(e.offsetY/10)*10],
+            matched = false;
+
+        for (let i = 0; i < lines.length; ++i) {
+          if ((lines[i][0] == newPos[0] && lines[i][1] == newPos[1] && lines[i][2] == newPos[2] && lines[i][3] == newPos[3]) || (lines[i][0] == newPos[2] && lines[i][1] == newPos[3] && lines[i][2] == newPos[0] && lines[i][3] == newPos[1])) {
+            lines.splice(i, 1);
+            dashed.splice(i, 1);
+            matched = true;
+          }
+        }
+
+        if (!matched) {
+          lines.push(newPos);
+          dashed.push(extendLine(...newPos));
+        }
+        selected = [-100, -100];
+      } else {
+        selected = [Math.round(e.offsetX/10)*10, Math.round(e.offsetY/10)*10];
+      }
+    }
+    
+    reset();
+  };
+  
+  btn1.onclick = () => {
+    if (btn1.innerText == "Sector") {
+      btn1.innerText = "Side";
+      mode = 1;
+      selected = [];
+    } else {
+      btn1.innerText = "Sector";
+      mode = 0;
+      selected = [];
+    }
+  };
+  
+  btn2.onclick = () => {
+    if (btn2.innerText == "Show Lines") {
+      btn2.innerText = "Hide Lines";
+      show = true;
+    } else {
+      btn2.innerText = "Show Lines";
+      show = false;
+    }
+    reset();
+  };
+  
+  btn3.onclick = () => {
+    lines = [];
+    dashed = [];
+    sectors = [];
+  	reset();
+  };
+  
+  btn4.onclick = () => {
+    for (let i = 0; i < lines.length; ++i)
+      console.log("new Side(" + lines[i].join(","));
+    for (let i = 0; i < sectors.length; ++i)
+      console.log("new Sector(" + sectors[i].join(","));
+  };
+    
+  reset();
+</script>
