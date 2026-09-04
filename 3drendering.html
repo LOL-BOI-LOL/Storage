@@ -66,20 +66,15 @@
       this.rVec = this.rVec.map(v => v/Math.sqrt(this.rVec[0]**2+this.rVec[1]**2));
     }
     
-    move(dx, dy) {
+    move(dx, dy, dz) {
       let res = this.sector.moveSector([this.pos[0]+dx,this.pos[1]+dy]);
       if (res[0]) {
-        this.pos = [this.pos[0]+dx,this.pos[1]+dy, camZ];
+        this.pos = [this.pos[0]+dx,this.pos[1]+dy, this.pos[2]+dz];
         if (res[1] !== null){
           this.sector = res[1];
-        	for(let i = 0; i < objs.length; ++i){
-        		for(let cor = 0; cor < 4; ++cor){
-          		objs[i].corners[cor][2] += this.sector.zlevel-camZ;
-        		}
-      		}
-          camZ = this.sector.zlevel;
         }
-      }
+      } else
+        this.pos[2] += dz;
     }
   }
 
@@ -193,7 +188,7 @@
         nComps[i] = (v[0]-origin[0])*nVec[0]+(v[1]-origin[1])*nVec[1];
         xComps[i] = ((v[0]-origin[0])*xVec[0]+(v[1]-origin[1])*xVec[1])/nComps[i];
       });
-      return [[[xComps[0],this.corners[0][2]/nComps[0]],[xComps[1],this.corners[1][2]/nComps[1]],[xComps[1],this.corners[2][2]/nComps[1]],[xComps[0],this.corners[3][2]/nComps[0]]],cutImg(this.corners[0],this.len,...points,this.width,this.offset),deterSide(origin,points[0],this.dir)];
+      return [[[xComps[0],(this.corners[0][2]-origin[2])/nComps[0]],[xComps[1],(this.corners[1][2]-origin[2])/nComps[1]],[xComps[1],(this.corners[2][2]-origin[2])/nComps[1]],[xComps[0],(this.corners[3][2]-origin[2])/nComps[0]]],cutImg(this.corners[0],this.len,...points,this.width,this.offset),deterSide(origin,points[0],this.dir)];
     }
     
     draw(cam) {
@@ -233,9 +228,8 @@
     corners;
     sides;
     neighbors;
-    zlevel;
     
-    constructor(corners, order, neighbors, zlevel) {
+    constructor(corners, order, neighbors) {
       this.order = order;
       this.corners = corners;
       this.neighbors = neighbors;
@@ -243,7 +237,6 @@
       for (let i = 0; i < corners.length - 1; ++i)
         this.sides[i] = [corners[i+1][0]-corners[i][0],corners[i+1][1]-corners[i][1]];
       this.sides[corners.length - 1] = [corners[0][0]-corners[corners.length-1][0],corners[0][1]-corners[corners.length-1][1]];
-    	this.zlevel = zlevel;
     }
     
     isInside(point) {
@@ -311,27 +304,19 @@
                 new Surface(-50,-50,50,-50, 20, camZ, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),],
         sectors = [//new Sector([[-50,-50],[0,-50],[0,50],[-50,50]],[1,0,2,3,4,5],[1]),
                    //new Sector([[50,-50],[0,-50],[0,50],[50,50]],[0,1,2,3,4,5],[0]),
-                   new Sector([[-50,-50],[50,-50],[50,50],[-50,50]],[0,1,2,3,4,5,6,7,8],[1],0),
-        					 new Sector([[50,-50],[50,50],[100,50],[100,-50]],[6,7,0,1,2,3,4,5,8],[0],20)],
+                   new Sector([[-50,-50],[50,-50],[50,50],[-50,50]],[0,1,2,3,4,5,6,7,8],[1]),
+        					 new Sector([[50,-50],[50,50],[100,50],[100,-50]],[6,7,0,1,2,3,4,5,8],[0])],
         cam = new Camera(sectors[0], [0, 0, camZ], 0);
   
   const move = () => {
     let netWS = keyStates.w-keyStates.s,
     		netAD = keyStates.a-keyStates.d,
-        netRF = keyStates.r-keyStates.f,
+        netRF = keyStates.f-keyStates.r,
         factor = Math.sqrt(Math.abs(netWS)+Math.abs(netAD))/moveSpeed,
         netQE = keyStates.q-keyStates.e;
-    camZ += netRF;
-    cam.pos[2] = camZ;
-    if(netRF != 0){
-      for(let i = 0; i < objs.length; ++i){
-        for(let cor = 0; cor < 4; ++cor){
-          objs[i].corners[cor][2] += netRF;
-        }
-      }
-    }
-    if (netWS != 0 || netAD != 0)
-      cam.move((cam.nVec[0]*netWS-cam.xVec[0]*netAD)/factor,(cam.nVec[1]*netWS-cam.xVec[1]*netAD)/factor);
+    
+    if (netWS != 0 || netAD != 0 || netRF != 0)
+      cam.move((cam.nVec[0]*netWS-cam.xVec[0]*netAD)/factor,(cam.nVec[1]*netWS-cam.xVec[1]*netAD)/factor,netRF*moveSpeed);
     if (netQE != 0)
 	    cam.updateAngle(netQE*turnSpeed);
   };
