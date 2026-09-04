@@ -18,7 +18,17 @@
   	position: fixed;
     left: 0;
   }
-  
+  #pos {
+  	display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 20vw;
+    height: 10vh;
+    left: 0;
+    bottom: 0;
+  }
   #sec {
   	top: 0;
   }
@@ -35,6 +45,7 @@
   	top: 90px;
   }
 </style>
+<div id="pos"> X, Y </div>
 <button id="sec">Sector</button>
 <button id="show">Show Lines</button>
 <button id="prnt">Print</button>
@@ -46,7 +57,8 @@
         btn4 = document.getElementById("prnt"),
         btn3 = document.getElementById("del"),
         c = document.getElementById("c"),
-        ctx = c.getContext("2d");
+        ctx = c.getContext("2d"),
+        posDiv = document.getElementById("pos");
   
   var selected = [-100, -100],
 			lines = [],
@@ -210,11 +222,13 @@
   };
   
   btn4.onclick = () => {
-    for (let i = 0; i < lines.length; ++i)
-      console.log("new Side(" + lines[i].join(","));
+    for (let i = 0; i < lines.length; i++)
+      console.log("new Side(" + lines[i].map(num => num - 500).join(","));
     for (let i = 0; i < sectors.length; ++i)
-      console.log("new Sector(" + sectors[i].join(","));
+      console.log("new Sector(" + sectors[i].map(num => num - 500).join(","));
   };
-    
+  c.onmousemove = e => {
+    posDiv.innerText = "X: " + (Math.round(e.offsetX/10)*10-500) + ", Y: " + (Math.round(e.offsetY/10)*10-500);
+	}
   reset();
 </script>
