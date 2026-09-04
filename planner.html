@@ -19,15 +19,15 @@
     left: 0;
   }
   #pos {
-  	display: flex;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
     width: 20vw;
     height: 10vh;
+  	display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
     left: 0;
     bottom: 0;
+    background-color: white;
   }
   #sec {
   	top: 0;
@@ -144,6 +144,7 @@
     ctx.arc(Math.round(e.offsetX/10)*10, Math.round(e.offsetY/10)*10, 5, 0, 2 * Math.PI, true);
     ctx.closePath();
     ctx.stroke();
+    posDiv.innerText = "X: "+(Math.round(e.offsetX/10)*10-c.width/2)+", Y: "+(c.height/2-Math.round(e.offsetY/10)*10);
   };
   
   c.onclick = e => {
@@ -223,12 +224,10 @@
   
   btn4.onclick = () => {
     for (let i = 0; i < lines.length; i++)
-      console.log("new Side(" + lines[i].map(num => num - 500).join(","));
+      console.log("new Side(" + lines[i].map(num => num-c.width/2).join(","));
     for (let i = 0; i < sectors.length; ++i)
-      console.log("new Sector(" + sectors[i].map(num => num - 500).join(","));
+      console.log("new Sector(" + sectors[i].map(num => c.height/2-num).join(","));
   };
-  c.onmousemove = e => {
-    posDiv.innerText = "X: " + (Math.round(e.offsetX/10)*10-500) + ", Y: " + (Math.round(e.offsetY/10)*10-500);
-	}
+  
   reset();
 </script>
