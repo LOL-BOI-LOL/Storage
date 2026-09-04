@@ -72,6 +72,7 @@
         this.pos = [this.pos[0]+dx,this.pos[1]+dy, this.pos[2]+dz];
         if (res[1] !== null){
           this.sector = res[1];
+          this.pos[2] = this.sector.zlevel;
         }
       } else
         this.pos[2] += dz;
@@ -228,8 +229,9 @@
     corners;
     sides;
     neighbors;
+    zlevel;
     
-    constructor(corners, order, neighbors) {
+    constructor(corners, order, neighbors, zlevel) {
       this.order = order;
       this.corners = corners;
       this.neighbors = neighbors;
@@ -237,6 +239,7 @@
       for (let i = 0; i < corners.length - 1; ++i)
         this.sides[i] = [corners[i+1][0]-corners[i][0],corners[i+1][1]-corners[i][1]];
       this.sides[corners.length - 1] = [corners[0][0]-corners[corners.length-1][0],corners[0][1]-corners[corners.length-1][1]];
+    	this.zlevel = zlevel;
     }
     
     isInside(point) {
@@ -304,8 +307,8 @@
                 new Surface(-50,-50,50,-50, 20, camZ, ["https://upload.wikimedia.org/wikipedia/commons/5/5a/200_Franc_coin_%28CFP%29%2C_obverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original","https://upload.wikimedia.org/wikipedia/commons/2/29/200_Franc_coin_%28CFP%29%2C_reverse.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"]),],
         sectors = [//new Sector([[-50,-50],[0,-50],[0,50],[-50,50]],[1,0,2,3,4,5],[1]),
                    //new Sector([[50,-50],[0,-50],[0,50],[50,50]],[0,1,2,3,4,5],[0]),
-                   new Sector([[-50,-50],[50,-50],[50,50],[-50,50]],[0,1,2,3,4,5,6,7,8],[1]),
-        					 new Sector([[50,-50],[50,50],[100,50],[100,-50]],[6,7,0,1,2,3,4,5,8],[0])],
+                   new Sector([[-50,-50],[50,-50],[50,50],[-50,50]],[0,1,2,3,4,5,6,7,8],[1],0),
+        					 new Sector([[50,-50],[50,50],[100,50],[100,-50]],[6,7,0,1,2,3,4,5,8],[0],-20)],
         cam = new Camera(sectors[0], [0, 0, camZ], 0);
   
   const move = () => {
